@@ -10,7 +10,7 @@ lerna-debug.log*
 node_modules
 /dashboard/
 /graphics/
-/assets/
+shared
 /.vscode/
 dist
 dist-ssr

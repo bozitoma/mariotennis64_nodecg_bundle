@@ -15,6 +15,7 @@ const outDir = resolve(__dirname, '');
 export default defineConfig({
   root,
   plugins: [react()],
+  base: "./",
   build: {
     outDir,
     assetsDir: "shared",
