@@ -17,11 +17,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir,
+    assetsDir: "shared",
     rollupOptions: {
       input: {
         dashboard: resolve(root, "dashboard", 'index.html'),
         graphics: resolve(root, "graphics", 'index.html')
       }
-    }
-  },
+    },
+  }
 })

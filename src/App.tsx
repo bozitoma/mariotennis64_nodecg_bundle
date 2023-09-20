@@ -1,33 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import * as React from "react";
+// import { Autocomplete, TextField } from "@mui/material";
 import './App.css'
+import Buttons from './components/selectbox.tsx'
+
+// type Props = {
+//   text: string
+//   url: string
+// }
+
+// const characterIcon = [
+//   { label: 'マリオ', value: 'mario' },
+//   { label: 'ルイージ', value: 'luigi' },
+//   { label: 'ワリオ', value: 'wario' },
+//   { label: 'ワルイージ', value: 'waluigi' },
+//   { label: 'ピーチ', value: 'peach' },
+//   { label: 'デイジー', value: 'daisy' },
+//   { label: 'ベビィマリオ', value: 'babymario' },
+//   { label: 'キノピオ', value: 'toad' },
+//   { label: 'ヨッシー', value: 'yoshi' },
+//   { label: 'キャサリン', value: 'birdo' },
+//   { label: 'ドンキーコング', value: 'dk' },
+//   { label: 'クッパ', value: 'bowser' },
+//   { label: 'パタパタ', value: 'paratroopa' },
+//   { label: 'テレサ', value: 'boo' },
+//   { label: 'ドンキーコングJr.', value: 'dkjr' },
+//   { label: 'ヘイホー', value: 'shyguy' }
+// ]
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={characterIcon}
+        sx={{ width: 300 }}
+        renderInput={(params) => <TextField {...params} label="Character" />}
+      /> */}
+      <Buttons
+      text='dashboard' url='http://localhost:5174/dashboard/index.html'
+       />
+      <Buttons
+      text='graphics' url='http://localhost:5174/graphics/index.html'
+      />
     </>
   )
 }
