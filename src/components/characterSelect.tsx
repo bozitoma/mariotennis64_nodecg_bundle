@@ -1,5 +1,24 @@
-// import * as React from "react";
-import { Autocomplete, TextField } from "@mui/material";
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
+type Props = {
+  id: string
+  label: string
+}
+
+export function CharacterSelects({ id, label }: Props) {
+  return (
+    <>
+      <Autocomplete
+        disablePortal
+        id={id}
+        options={characterIcon.map((option) => option.label)}
+        renderInput={(params) => <TextField {...params} label={label} />}
+        sx={{ width: 300 }}
+      />
+    </>
+  );
+}
 
 const characterIcon = [
   { label: 'マリオ', value: 'mario' },
@@ -20,18 +39,3 @@ const characterIcon = [
   { label: 'ヘイホー', value: 'shyguy' }
 ]
 
-function characterSerect() {
-  return (
-    <>
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={characterIcon}
-        sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="Character" />}
-      />
-    </>
-  )
-}
-
-export default characterSerect
