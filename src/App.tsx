@@ -1,7 +1,7 @@
 // import * as React from "react";
 // import { Autocomplete, TextField } from "@mui/material";
 import './App.css'
-import Buttons from './components/selectbox.tsx'
+import { Buttons } from './components/button.tsx'
 
 // type Props = {
 //   text: string
@@ -38,10 +38,10 @@ function App() {
         renderInput={(params) => <TextField {...params} label="Character" />}
       /> */}
       <Buttons
-      text='dashboard' url='http://localhost:5174/dashboard/index.html'
+      variant="contained" color="primary" text='dashboard' url='http://localhost:5173/dashboard/index.html'
        />
       <Buttons
-      text='graphics' url='http://localhost:5174/graphics/index.html'
+      variant="contained" color="primary" text='graphics' url='http://localhost:5173/graphics/index.html'
       />
     </>
   )
