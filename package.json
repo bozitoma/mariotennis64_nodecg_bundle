@@ -16,8 +16,8 @@
       {
         "name": "dashboard",
         "title": "dashboard",
-        "fullbleed": true,
         "file": "index.html",
+        "width": 6,
         "headerColor": "#525F78"
       }
     ],
@@ -44,8 +44,11 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "2.8.8",
+    "ts-nodecg": "^0.3.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
