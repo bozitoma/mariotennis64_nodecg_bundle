@@ -38,10 +38,10 @@ function App() {
         renderInput={(params) => <TextField {...params} label="Character" />}
       /> */}
       <Buttons
-      variant="contained" color="primary" text='dashboard' url='http://localhost:5173/dashboard/index.html'
+      variant="contained" color="primary" text='dashboard' url='http://localhost:5173/dashboard/index.html' width={300}
        />
       <Buttons
-      variant="contained" color="primary" text='graphics' url='http://localhost:5173/graphics/index.html'
+      variant="contained" color="primary" text='graphics' url='http://localhost:5173/graphics/index.html' width={300}
       />
     </>
   )
