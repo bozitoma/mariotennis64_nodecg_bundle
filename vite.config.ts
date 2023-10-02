@@ -23,6 +23,7 @@ export default defineConfig({
       input: {
         dashboard: resolve(root, "dashboard", 'index.html'),
         graphics: resolve(root, "graphics", 'index.html')
+        // extensions: resolve(root, "extensions", 'index.html')
       }
     },
   }
