@@ -5,12 +5,14 @@ type Props = {
   text: string
   color: "primary" | "error" | "inherit" | "secondary" | "info" | "success" | "warning"
   url?: string
+  width: number
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export function Buttons({ variant, text, color, url }: Props) {
+export function Buttons({ variant, text, color, url, width, onClick }: Props) {
   return (
     <>
-      <Button variant={variant} color={color} href={url}>{text}</Button>
+      <Button variant={variant} onClick={onClick} color={color} href={url} sx={{ width: {width} } }>{text}</Button>
     </>
 
   )
