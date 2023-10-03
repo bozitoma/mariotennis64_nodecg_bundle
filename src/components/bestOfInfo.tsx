@@ -4,6 +4,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Stack, TextField } from '@mui/material';
 import { Buttons } from './button';
 import { TextBox } from './textBox';
+import { useReplicant } from '../hooks/useReplicant';
 
 export function BestOfInfo() {
   const [alignment, setAlignment] = React.useState('');
@@ -25,10 +26,16 @@ export function BestOfInfo() {
     setSetInfoText((event.target as HTMLButtonElement).value);
   };
 
+  const [round, setRound] = useReplicant('bestOfInfo');
+
+  const submit = () => {
+    setRound(setInfoText);
+  };
+
   return (
     <>
       <Stack spacing={1}>
-        <TextBox id="" label="" variant="outlined" width={300} size="small" />
+        <TextBox id="" label="" variant="outlined" width={300} size="small" value={round} />
         <TextField
           id="bestOfInfo"
           label="Best of"
@@ -51,7 +58,7 @@ export function BestOfInfo() {
           <ToggleButton value="Best of 3">Bo3</ToggleButton>
           <ToggleButton value="Best of 5">Bo5</ToggleButton>
         </ToggleButtonGroup>
-        <Buttons variant="outlined" text="submit" color="primary" width={100} />
+        <Buttons variant="outlined" text="submit" color="primary" width={100} onClick={submit} />
       </Stack>
     </>
   );
