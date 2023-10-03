@@ -4,7 +4,7 @@ import { Stack } from '@mui/material';
 
 export function RoundInfo() {
   return (
-    <Stack spacing={2} sx={{ width: 300 }}>
+    <Stack spacing={2} sx={{ width: 440 }}>
       <Autocomplete
         id="roundInfoText"
         freeSolo

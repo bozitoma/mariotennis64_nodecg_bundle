@@ -19,7 +19,7 @@ function App() {
             id="tournamentInfo"
             label="Tournament Info"
             variant="outlined"
-            width={300}
+            width={400}
             size="small"
           />
         </Stack>

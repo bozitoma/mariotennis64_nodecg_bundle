@@ -35,7 +35,7 @@ export function BestOfInfo() {
   return (
     <>
       <Stack spacing={1}>
-        <TextBox id="" label="" variant="outlined" width={300} size="small" value={round} />
+        <TextBox id="" label="" variant="outlined" width={150} size="small" value={round} />
         <TextField
           id="bestOfInfo"
           label="Best of"
