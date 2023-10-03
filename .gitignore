@@ -15,6 +15,7 @@ shared
 dist
 dist-ssr
 *.local
+.history
 
 # Editor directories and files
 .vscode/*
