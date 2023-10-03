@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 /dashboard/
 /graphics/
+/extension/
 shared
 /.vscode/
 dist
