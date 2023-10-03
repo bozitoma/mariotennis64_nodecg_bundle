@@ -1,12 +1,12 @@
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
 
 // index.htmlのルートディレクトリを変更
 // 参考
 // https://zenn.dev/junseinagao/scraps/a4e6b1413ff26e
 // https://zenn.dev/s_takashi/articles/d033401905ccf9
-const root = resolve(__dirname, 'src')
+const root = resolve(__dirname, 'src');
 
 // ビルドの出力先をプロジェクトルート直下に変更
 const outDir = resolve(__dirname, '');
@@ -15,16 +15,16 @@ const outDir = resolve(__dirname, '');
 export default defineConfig({
   root,
   plugins: [react()],
-  base: "./",
+  base: './',
   build: {
     outDir,
-    assetsDir: "shared",
+    assetsDir: 'shared',
     rollupOptions: {
       input: {
-        dashboard: resolve(root, "dashboard", 'index.html'),
-        graphics: resolve(root, "graphics", 'index.html')
-        // extensions: resolve(root, "extensions", 'index.html')
-      }
+        dashboard: resolve(root, 'dashboard', 'index.html'),
+        graphics: resolve(root, 'graphics', 'index.html'),
+        extension: resolve(root, 'extension', 'index.ts'),
+      },
     },
-  }
-})
+  },
+});
