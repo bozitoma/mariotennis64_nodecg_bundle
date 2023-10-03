@@ -1,46 +1,47 @@
-import { Buttons } from "../components/button";
-import { SwapButtons } from "../components/swapButton";
-import { TextBox } from "../components/textBox";
-import { CharacterSelects } from "../components/characterSelect";
-import { Counter } from "../components/counter";
-import { MatchOfNunber } from "../components/setSelect";
-import { RoundSelect } from "../components/roundSelect";
-import { Stack } from "@mui/material";
-
-// const characterIcon = [
-//   { label: 'マリオ', value: 'mario' },
-//   { label: 'ルイージ', value: 'luigi' },
-//   { label: 'ワリオ', value: 'wario' },
-//   { label: 'ワルイージ', value: 'waluigi' },
-//   { label: 'ピーチ', value: 'peach' },
-//   { label: 'デイジー', value: 'daisy' },
-//   { label: 'ベビィマリオ', value: 'babymario' },
-//   { label: 'キノピオ', value: 'toad' },
-//   { label: 'ヨッシー', value: 'yoshi' },
-//   { label: 'キャサリン', value: 'birdo' },
-//   { label: 'ドンキーコング', value: 'dk' },
-//   { label: 'クッパ', value: 'bowser' },
-//   { label: 'パタパタ', value: 'paratroopa' },
-//   { label: 'テレサ', value: 'boo' },
-//   { label: 'ドンキーコングJr.', value: 'dkjr' },
-//   { label: 'ヘイホー', value: 'shyguy' }
-// ]
+import { Buttons, SwapButtons } from '../components/button';
+import { TextBox } from '../components/textBox';
+import { CharacterInfo } from '../components/characterInfo';
+import { Counter } from '../components/counter';
+import { BestOfInfo } from '../components/bestOfInfo';
+import { RoundInfo } from '../components/roundInfo';
+import { Stack } from '@mui/material';
+import { PlayerInfo } from '../components/playerInfo';
 
 function App() {
   return (
     <>
       <Stack spacing={2}>
-        <CharacterSelects id="characterSelect1P" label="1P Character"/>
-        <TextBox id="player1P" label="Player1P" />
-        <Counter />
+        <Stack direction="row" spacing={2}>
+          <RoundInfo />
+          <BestOfInfo />
+          <TextBox
+            id="tournamentInfo"
+            label="Tournament Info"
+            variant="outlined"
+            width={300}
+            size="small"
+          />
+        </Stack>
+        <Stack direction="row" spacing={2}>
+          <CharacterInfo id="characterSelect1P" label="1P Character" />
+          <SwapButtons />
+          <CharacterInfo id="characterSelect2P" label="2P Character" />
+        </Stack>
+        <Stack direction="row" spacing={2}>
+          <PlayerInfo id="player1P" label="1P Player Name" />
+          <SwapButtons />
+          <PlayerInfo id="player2P" label="2P Player Name" />
+        </Stack>
+        <Stack spacing={2}>
+          <Counter />
+        </Stack>
+        <Stack direction="row" spacing={2}>
+          <Buttons variant="contained" text="submit" color="primary" width={300} />
+          <Buttons variant="outlined" text="reset" color="error" width={150} />
+        </Stack>
       </Stack>
-      <MatchOfNunber />
-      <RoundSelect />
-      <Buttons variant="contained" text="submit" color="primary"/>
-      <Buttons variant="outlined" text="reset" color="error"/>
-      <SwapButtons />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
