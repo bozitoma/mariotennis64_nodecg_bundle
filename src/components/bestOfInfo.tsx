@@ -2,15 +2,14 @@ import * as React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Stack, TextField } from '@mui/material';
+import { Buttons } from './button';
+import { TextBox } from './textBox';
 
-export function MatchOfNunber() {
+export function BestOfInfo() {
   const [alignment, setAlignment] = React.useState('');
   const [setInfoText, setSetInfoText] = React.useState('');
 
-  const handleChange = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string,
-  ) => {
+  const handleButtonChange = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
     setAlignment(newAlignment);
 
     // (event.target as HTMLButtonElement)
@@ -18,19 +17,25 @@ export function MatchOfNunber() {
     if ((event.target as HTMLButtonElement).value === setInfoText) {
       setSetInfoText('');
     } else {
-      setSetInfoText((event.target as HTMLButtonElement).value)
+      setSetInfoText((event.target as HTMLButtonElement).value);
     }
+  };
+
+  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setSetInfoText((event.target as HTMLButtonElement).value);
   };
 
   return (
     <>
       <Stack spacing={1}>
+        <TextBox id="" label="" variant="outlined" width={300} size="small" />
         <TextField
-          id="setInfo"
+          id="bestOfInfo"
           label="Best of"
           variant="outlined"
-          size='small'
+          size="small"
           value={setInfoText}
+          onChange={handleTextChange}
           sx={{ width: 150 }}
         />
         <ToggleButtonGroup
@@ -39,13 +44,14 @@ export function MatchOfNunber() {
           size="small"
           value={alignment} // 選択中のボタンを取得
           exclusive // 一度に1つのボタンのみを選択する属性
-          onChange={handleChange} // クリック時の挙動
+          onChange={handleButtonChange} // クリック時の挙動
           aria-label="Platform"
         >
           <ToggleButton value="Best of 1">Bo1</ToggleButton>
           <ToggleButton value="Best of 3">Bo3</ToggleButton>
           <ToggleButton value="Best of 5">Bo5</ToggleButton>
         </ToggleButtonGroup>
+        <Buttons variant="outlined" text="submit" color="primary" width={100} />
       </Stack>
     </>
   );
