@@ -1,4 +1,3 @@
-import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Stack } from '@mui/material';
@@ -7,26 +6,11 @@ export function RoundInfo() {
   return (
     <Stack spacing={2} sx={{ width: 300 }}>
       <Autocomplete
-        id="free-solo-demo"
+        id="roundInfoText"
         freeSolo
         options={roundList.map((option) => option)}
         renderInput={(params) => <TextField {...params} label="Round" />}
-      />
-      <Autocomplete
-        freeSolo
-        id="free-solo-2-demo"
-        disableClearable
-        options={roundList.map((option) => option)}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Search input"
-            InputProps={{
-              ...params.InputProps,
-              type: 'search',
-            }}
-          />
-        )}
+        size="small"
       />
     </Stack>
   );
