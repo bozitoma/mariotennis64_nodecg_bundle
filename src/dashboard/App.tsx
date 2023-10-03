@@ -6,6 +6,7 @@ import { BestOfInfo } from '../components/bestOfInfo';
 import { RoundInfo } from '../components/roundInfo';
 import { Stack } from '@mui/material';
 import { PlayerInfo } from '../components/playerInfo';
+import './App.css';
 
 function App() {
   return (
