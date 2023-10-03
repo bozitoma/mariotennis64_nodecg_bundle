@@ -6,7 +6,7 @@ type Props = {
   label: string;
 };
 
-export function CharacterSelects({ id, label }: Props) {
+export function CharacterInfo({ id, label }: Props) {
   return (
     <>
       <Autocomplete
@@ -15,6 +15,7 @@ export function CharacterSelects({ id, label }: Props) {
         options={characterIcon.map((option) => option.label)}
         renderInput={(params) => <TextField {...params} label={label} />}
         sx={{ width: 300 }}
+        size="small"
       />
     </>
   );
