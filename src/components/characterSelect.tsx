@@ -2,9 +2,9 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
 type Props = {
-  id: string
-  label: string
-}
+  id: string;
+  label: string;
+};
 
 export function CharacterSelects({ id, label }: Props) {
   return (
@@ -36,6 +36,5 @@ const characterIcon = [
   { label: 'パタパタ', value: 'paratroopa' },
   { label: 'テレサ', value: 'boo' },
   { label: 'ドンキーコングJr.', value: 'dkjr' },
-  { label: 'ヘイホー', value: 'shyguy' }
-]
-
+  { label: 'ヘイホー', value: 'shyguy' },
+];
