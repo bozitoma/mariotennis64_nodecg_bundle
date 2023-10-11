@@ -60,7 +60,7 @@ export function Counter() {
     <>
       <Stack direction="row" spacing={2}>
         <ButtonGroup>
-          <StyledInput size="small" onChange={score1P} value={count1P} />
+          <StyledInput id="gameCount1p" size="small" onChange={score1P} value={count1P} />
           <StyledButton onClick={() => setCount1p((prev) => prev - 1)} disabled={count1P === 0}>
             <RemoveIcon fontSize="small" />
           </StyledButton>
@@ -76,7 +76,7 @@ export function Counter() {
           <StyledButton onClick={() => setCount2p((prev) => prev - 1)} disabled={count2P === 0}>
             <RemoveIcon fontSize="small" />
           </StyledButton>
-          <StyledInput size="small" onChange={score2P} value={count2P} />
+          <StyledInput id="gameCount2p" size="small" onChange={score2P} value={count2P} />
         </ButtonGroup>
       </Stack>
     </>

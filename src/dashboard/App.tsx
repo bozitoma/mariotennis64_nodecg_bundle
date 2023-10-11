@@ -1,11 +1,11 @@
-import { Buttons, SwapButtons } from '../components/button';
+import { ButtonSubmitReset } from '../components/submitButton';
 import { TextBox } from '../components/textBox';
-import { CharacterInfo } from '../components/characterInfo';
+import { CharacterInfoSwap } from '../components/characterInfo';
 import { Counter } from '../components/counter';
 import { BestOfInfo } from '../components/bestOfInfo';
 import { RoundInfo } from '../components/roundInfo';
 import { Stack } from '@mui/material';
-import { PlayerInfo } from '../components/playerInfo';
+import { PlayerInfoSwap } from '../components/playerInfo';
 import './App.css';
 
 function App() {
@@ -24,22 +24,13 @@ function App() {
           />
         </Stack>
         <Stack direction="row" spacing={2}>
-          <CharacterInfo id="characterSelect1P" label="1P Character" />
-          <SwapButtons />
-          <CharacterInfo id="characterSelect2P" label="2P Character" />
+          <CharacterInfoSwap />
         </Stack>
-        <Stack direction="row" spacing={2}>
-          <PlayerInfo id="player1P" label="1P Player Name" />
-          <SwapButtons />
-          <PlayerInfo id="player2P" label="2P Player Name" />
-        </Stack>
+        <PlayerInfoSwap />
         <Stack spacing={2}>
           <Counter />
         </Stack>
-        <Stack direction="row" spacing={2}>
-          <Buttons variant="contained" text="submit" color="primary" width={300} />
-          <Buttons variant="outlined" text="reset" color="error" width={150} />
-        </Stack>
+        <ButtonSubmitReset />
       </Stack>
     </>
   );

@@ -29,10 +29,10 @@ export function Buttons({ variant, text, color, url, width, onClick }: Props) {
   );
 }
 
-export function SwapButtons() {
+export function SwapButtons({ onClick }: Props) {
   return (
     <>
-      <IconButton color="primary">
+      <IconButton color="primary" onClick={onClick}>
         <SwapHorizontalCircleRoundedIcon />
       </IconButton>
     </>

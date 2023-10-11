@@ -6,7 +6,7 @@ export function RoundInfo() {
   return (
     <Stack spacing={2} sx={{ width: 440 }}>
       <Autocomplete
-        id="roundInfoText"
+        id="roundInfo"
         freeSolo
         options={roundList.map((option) => option)}
         renderInput={(params) => <TextField {...params} label="Round" />}

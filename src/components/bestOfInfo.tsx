@@ -26,16 +26,16 @@ export function BestOfInfo() {
     setSetInfoText((event.target as HTMLButtonElement).value);
   };
 
-  const [round, setRound] = useReplicant('bestOfInfo');
+  const [bestOfInfo, setBestOfInfo] = useReplicant('bestOfInfo');
 
   const submit = () => {
-    setRound(setInfoText);
+    setBestOfInfo(setInfoText);
   };
 
   return (
     <>
       <Stack spacing={1}>
-        <TextBox id="" label="" variant="outlined" width={150} size="small" value={round} />
+        <TextBox id="" label="" variant="outlined" width={150} size="small" value={bestOfInfo} />
         <TextField
           id="bestOfInfo"
           label="Best of"
