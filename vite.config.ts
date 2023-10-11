@@ -18,12 +18,18 @@ export default defineConfig({
   base: './',
   build: {
     outDir,
-    assetsDir: 'shared',
+    // assetsDir: 'shared',
     rollupOptions: {
       input: {
         dashboard: resolve(root, 'dashboard', 'index.html'),
         graphics: resolve(root, 'graphics', 'index.html'),
-        extension: resolve(root, 'extension', 'index.ts'),
+        // extension: resolve(root, 'extension', 'index.ts'),
+      },
+      output: {
+        // entry chunk assets それぞれの書き出し名の指定
+        entryFileNames: `[name]/index.js`,
+        chunkFileNames: `shared/[name].js`,
+        assetFileNames: `shared/[name].[ext]`,
       },
     },
   },
