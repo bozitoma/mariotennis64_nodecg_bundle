@@ -6,6 +6,6 @@ declare global {
     'mariotennis64',
     undefined,
     ReplicantMap,
-    { [x: string]: never }
+    { [x: string]: string }
   >;
 }
