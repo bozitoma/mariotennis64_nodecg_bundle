@@ -1,6 +1,10 @@
-import { Stack } from '@mui/material';
+import { Alert, Button, Snackbar, Stack } from '@mui/material';
 import { Buttons } from './button';
 import { useReplicant } from '../hooks/useReplicant';
+import { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
 
 // type Props = {
 //   id: string;
@@ -12,7 +16,29 @@ import { useReplicant } from '../hooks/useReplicant';
 // };
 
 export function ButtonSubmitReset() {
-  // const [setInfoText] = React.useState('');
+  // Submitのスナックバー
+  const [submitOpen, setSubmitOpen] = useState(false);
+  const handleSubmitClose = (reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSubmitOpen(false);
+  };
+
+  // Resetのモーダルアラート
+  const [resetOpen, setResetOpen] = useState(false);
+  const handleResetOpen = () => {
+    setResetOpen(true);
+  };
+  const handleResetClose = () => {
+    setResetOpen(false);
+  };
+
+  // Reset完了のスナックバー
+  const [resetCompleteOpen, setResetCompleteOpen] = useState(false);
+  const handleResetCompleteClose = () => {
+    setResetCompleteOpen(false);
+  };
 
   const [, setBestOfInfo] = useReplicant('bestOfInfo');
   const [, setTournamentInfo] = useReplicant('tournamentInfo');
@@ -44,6 +70,7 @@ export function ButtonSubmitReset() {
     setCharacterSelect2p(characterSelect2P.value);
     setGameCount1p(gameCount1p.value);
     setGameCount2p(gameCount2p.value);
+    setSubmitOpen(true); // Submit完了のスナックバーを表示
   };
 
   const reset = () => {
@@ -56,14 +83,47 @@ export function ButtonSubmitReset() {
     characterSelect2P.value = '';
     gameCount1p.value = 0;
     gameCount2p.value = 0;
+    setResetOpen(false); // Resetのモーダルを閉じる
+    setResetCompleteOpen(true); // Reset完了のスナックバーを表示
   };
 
   return (
     <>
       <Stack direction="row" spacing={2}>
         <Buttons variant="contained" text="submit" color="primary" width={300} onClick={submit} />
-        <Buttons variant="outlined" text="reset" color="error" width={150} onClick={reset} />
+        <Buttons
+          variant="outlined"
+          text="reset"
+          color="error"
+          width={150}
+          onClick={handleResetOpen}
+        />
       </Stack>
+
+      {/* Submitのスナックバー */}
+      <Snackbar open={submitOpen} autoHideDuration={2000} onClose={handleSubmitClose}>
+        <Alert onClose={handleSubmitClose} severity="success" sx={{ width: '100%' }}>
+          Success update!
+        </Alert>
+      </Snackbar>
+
+      {/* Reset完了のスナックバー */}
+      <Snackbar open={resetCompleteOpen} autoHideDuration={2000} onClose={handleResetCompleteClose}>
+        <Alert onClose={handleResetCompleteClose} severity="success" sx={{ width: '100%' }}>
+          Success reset!
+        </Alert>
+      </Snackbar>
+
+      {/* Resetのモーダル */}
+      <Dialog open={resetOpen} onClose={handleResetClose} aria-labelledby="alert-dialog-title">
+        <DialogTitle id="alert-dialog-title">{'スコアボードをリセットしますか？'}</DialogTitle>
+        <DialogActions>
+          <Button onClick={handleResetClose}>キャンセル</Button>
+          <Button onClick={reset} variant="contained" color="error" autoFocus>
+            リセット
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }
