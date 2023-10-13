@@ -3,7 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { Stack } from '@mui/material';
 import { SwapButtons } from './button';
 import { MouseEventHandler } from 'react';
-import { usePlayerInfo } from '../hooks/useScoreboard';
+// import { usePlayerInfo } from '../hooks/useScoreboard';
 // import { useReplicant } from '../hooks/useReplicant';
 
 type Props = {
@@ -29,16 +29,30 @@ export function PlayerInfo({ id, label, value, onSelect }: Props) {
   );
 }
 
-export function PlayerInfoSwap() {
-  const { player1P, player2P, playerName1p, playerName2p, swap } = usePlayerInfo();
-
+export function PlayerInfoSwap({
+  statePlayer1p,
+  statePlayer2p,
+  playerName1p,
+  playerName2p,
+  playerSwap,
+}) {
   return (
     <Stack direction="row" spacing={2}>
-      <PlayerInfo id="player1P" label="1P Player Name" value={player1P} onSelect={playerName1p} />
-      <SwapButtons onClick={swap} />
-      <PlayerInfo id="player2P" label="2P Player Name" value={player2P} onSelect={playerName2p} />
+      <PlayerInfo
+        id="player1P"
+        label="1P Player Name"
+        value={statePlayer1p}
+        onSelect={playerName1p}
+      />
+      <SwapButtons onClick={playerSwap} />
+      <PlayerInfo
+        id="player2P"
+        label="2P Player Name"
+        value={statePlayer2p}
+        onSelect={playerName2p}
+      />
     </Stack>
   );
 }
 
-const playerList = ['Zackray', 'Abadango', 'Nietono', 'Atushi of the World'];
+const playerList = ['Zackray', 'Abadango', 'Nietono', 'Atsushi of the World'];

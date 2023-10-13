@@ -2,7 +2,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Stack } from '@mui/material';
 
-export function RoundInfo() {
+export function RoundInfo({ stateRound, selectRound }) {
   return (
     <Stack spacing={2} sx={{ width: 440 }}>
       <Autocomplete
@@ -11,6 +11,8 @@ export function RoundInfo() {
         options={roundList.map((option) => option)}
         renderInput={(params) => <TextField {...params} label="Round" />}
         size="small"
+        onSelect={selectRound}
+        value={stateRound}
       />
     </Stack>
   );

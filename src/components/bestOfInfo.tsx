@@ -1,27 +1,27 @@
-import * as React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Stack, TextField } from '@mui/material';
+// import { useState } from 'react';
 
-export function BestOfInfo() {
-  const [alignment, setAlignment] = React.useState('');
-  const [setInfoText, setSetInfoText] = React.useState('');
+export function BestOfInfo({ alignment, setInfoText, handleButtonChange, handleTextChange }) {
+  // const [alignment, setAlignment] = useState('');
+  // const [setInfoText, setSetInfoText] = useState('');
 
-  const handleButtonChange = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
-    setAlignment(newAlignment);
+  // const handleButtonChange = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
+  //   setAlignment(newAlignment);
 
-    // (event.target as HTMLButtonElement)
-    // →ボタンを操作したことで得たターゲットであることを型（HTMLButtonElement）として定義してる
-    if ((event.target as HTMLButtonElement).value === setInfoText) {
-      setSetInfoText('');
-    } else {
-      setSetInfoText((event.target as HTMLButtonElement).value);
-    }
-  };
+  //   // (event.target as HTMLButtonElement)
+  //   // →ボタンを操作したことで得たターゲットであることを型（HTMLButtonElement）として定義してる
+  //   if ((event.target as HTMLButtonElement).value === setInfoText) {
+  //     setSetInfoText('');
+  //   } else {
+  //     setSetInfoText((event.target as HTMLButtonElement).value);
+  //   }
+  // };
 
-  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setSetInfoText((event.target as HTMLButtonElement).value);
-  };
+  // const handleTextChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   setSetInfoText((event.target as HTMLButtonElement).value);
+  // };
 
   return (
     <>

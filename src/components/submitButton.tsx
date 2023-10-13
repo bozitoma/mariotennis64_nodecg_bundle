@@ -15,7 +15,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 //   value?: string;
 // };
 
-export function ButtonSubmitReset() {
+export function ButtonSubmitReset({
+  playerReset,
+  characterReset,
+  scoreReset,
+  bestOfInfoReset,
+  roundReset,
+}) {
   // Submitのスナックバー
   const [submitOpen, setSubmitOpen] = useState(false);
   const handleSubmitClose = (reason?: string) => {
@@ -39,6 +45,8 @@ export function ButtonSubmitReset() {
   const handleResetCompleteClose = () => {
     setResetCompleteOpen(false);
   };
+
+  // const { playerReset } = usePlayerInfo();
 
   const [, setBestOfInfo] = useReplicant('bestOfInfo');
   const [, setTournamentInfo] = useReplicant('tournamentInfo');
@@ -74,15 +82,11 @@ export function ButtonSubmitReset() {
   };
 
   const reset = () => {
-    bestOfInfo.value = '';
-    tournamentInfo.value = '';
-    roundInfo.value = '';
-    player1P.value = '';
-    player2P.value = '';
-    characterSelect1P.value = '';
-    characterSelect2P.value = '';
-    gameCount1p.value = 0;
-    gameCount2p.value = 0;
+    playerReset();
+    characterReset();
+    scoreReset();
+    // bestOfInfoReset();
+    roundReset();
     setResetOpen(false); // Resetのモーダルを閉じる
     setResetCompleteOpen(true); // Reset完了のスナックバーを表示
   };

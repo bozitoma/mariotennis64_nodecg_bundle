@@ -28,9 +28,13 @@ export function CharacterInfo({ id, label, value, onSelect }: Props) {
   );
 }
 
-export function CharacterInfoSwap() {
-  const { character1P, character2P, choseCharacter1p, choseCharacter2p, swap } = useCharacterInfo();
-
+export function CharacterInfoSwap({
+  character1P,
+  character2P,
+  choseCharacter1p,
+  choseCharacter2p,
+  characterSwap,
+}) {
   return (
     <>
       <CharacterInfo
@@ -39,7 +43,7 @@ export function CharacterInfoSwap() {
         value={character1P}
         onSelect={choseCharacter1p} //エラー消したい
       />
-      <SwapButtons onClick={swap} />
+      <SwapButtons onClick={characterSwap} />
       <CharacterInfo
         id="characterSelect2P"
         label="2P Character"

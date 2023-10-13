@@ -1,7 +1,7 @@
 // 参考 https://codesandbox.io/s/material-ui-counter-yo5tx?file=/src/App.js:0-1618
 
-import * as React from 'react';
-import { useState } from 'react';
+// import * as React from 'react';
+// import { useState } from 'react';
 import { ButtonGroup, Button, TextField, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { blueGrey } from '@mui/material/colors';
@@ -39,23 +39,15 @@ const StyledInput = styled(TextField)({
   },
 });
 
-export function Counter() {
-  const [count1P, setCount1p] = useState(0);
-  const [count2P, setCount2p] = useState(0);
-
-  const score1P = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCount1p(Math.max(Number(event.target.value), 0));
-  };
-
-  const score2P = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCount2p(Math.max(Number(event.target.value), 0));
-  };
-
-  const onClick = () => {
-    setCount1p(0);
-    setCount2p(0);
-  };
-
+export function Counter({
+  count1P,
+  count2P,
+  setCount1p,
+  setCount2p,
+  score1P,
+  score2P,
+  scoreReset,
+}) {
   return (
     <>
       <Stack direction="row" spacing={2}>
@@ -68,7 +60,7 @@ export function Counter() {
             <AddIcon fontSize="small" />
           </StyledButton>
         </ButtonGroup>
-        <ClearButtons onClick={onClick} />
+        <ClearButtons onClick={scoreReset} />
         <ButtonGroup>
           <StyledButton onClick={() => setCount2p((prev) => prev + 1)} disabled={count2P === 3}>
             <AddIcon fontSize="small" />
