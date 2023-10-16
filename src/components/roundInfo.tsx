@@ -1,10 +1,16 @@
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Stack } from '@mui/material';
+import { ReactEventHandler } from 'react';
 
-export function RoundInfo({ stateRound, selectRound }) {
+type Props = {
+  stateRoundInfo: string;
+  selectRound: ReactEventHandler<HTMLDivElement>;
+};
+
+export function RoundInfo({ stateRoundInfo, selectRound }: Props) {
   return (
-    <Stack spacing={2} sx={{ width: 440 }}>
+    <Stack spacing={2} sx={{ width: 300 }}>
       <Autocomplete
         id="roundInfo"
         freeSolo
@@ -12,7 +18,7 @@ export function RoundInfo({ stateRound, selectRound }) {
         renderInput={(params) => <TextField {...params} label="Round" />}
         size="small"
         onSelect={selectRound}
-        value={stateRound}
+        value={stateRoundInfo}
       />
     </Stack>
   );

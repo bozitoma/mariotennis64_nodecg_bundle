@@ -5,7 +5,7 @@ import SwapHorizontalCircleRoundedIcon from '@mui/icons-material/SwapHorizontalC
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 type Props = {
-  variant?: 'contained' | 'outlined';
+  variant?: 'text' | 'contained' | 'outlined';
   text?: string;
   color?: 'primary' | 'error' | 'inherit' | 'secondary' | 'info' | 'success' | 'warning';
   url?: string;

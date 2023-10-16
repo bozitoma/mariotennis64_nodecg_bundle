@@ -1,10 +1,9 @@
+import { Stack } from '@mui/material';
 import { useRepList } from '../hooks/useRepList';
-import './App.css';
 
-function App() {
+export function Status() {
   const {
     repBestOfInfo,
-    // repTournamentInfo,
     repRoundInfo,
     repPlayer1p,
     repPlayer2p,
@@ -40,40 +39,24 @@ function App() {
   const characterIcon2p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result2p?.value}MT.png`;
 
   return (
-    <>
-      {/* <div>{bestOfInfo}</div>
-      <div>{tournamentInfo}</div>
-      <div>{roundInfo}</div>
-      <div>{player1p}</div>
-      <div>{player2p}</div>
-      <img src={characterIcon1p} alt="" />
-      <img src={characterIcon2p} alt="" />
-      <div>{characterSelect1p}</div>
-      <div>{characterSelect2p}</div>
-      <div>{gameCount1p}</div>
-      <div>{gameCount2p}</div> */}
-      <div className="mario-tennis">
-        <div className="overlap-group-wrapper">
-          <div className="overlap-group">
-            <div className="name-1p">{repPlayer1p}</div>
-            <div className="name-2p">{repPlayer2p}</div>
-            <div className="score-1p" color="url(#paint0_linear_10_76)">
-              {repGameCount1p}
-            </div>
-            <div className="score-2p" color="url(#paint0_linear_10_76)">
-              {repGameCount2p}
-            </div>
-            <div className=".info">
-              <div className="bestOfInfo">{repBestOfInfo}</div>
-              <div className="roundInfo">{repRoundInfo}</div>
-            </div>
-            <img className="icon-1p" src={characterIcon1p} alt="" />
-            <img className="icon-2p" src={characterIcon2p} alt="" />
-          </div>
-        </div>
-      </div>
-    </>
+    <div style={{ color: 'black' }}>
+      <h2>Tournament Info</h2>
+      <Stack direction="row" spacing={2}>
+        <div>{repRoundInfo}</div>
+        <div>{repBestOfInfo}</div>
+      </Stack>
+      <Stack direction="row" spacing={2}>
+        <Stack spacing={2}>
+          <div>{repPlayer1p}</div>
+          <img src={characterIcon1p} alt="" />
+          <div>{repGameCount1p}</div>
+        </Stack>
+        <Stack spacing={2}>
+          <div>{repPlayer2p}</div>
+          <img src={characterIcon2p} alt="" />
+          <div>{repGameCount2p}</div>
+        </Stack>
+      </Stack>
+    </div>
   );
 }
-
-export default App;

@@ -1,37 +1,29 @@
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Stack, TextField } from '@mui/material';
-// import { useState } from 'react';
 
-export function BestOfInfo({ alignment, setInfoText, handleButtonChange, handleTextChange }) {
-  // const [alignment, setAlignment] = useState('');
-  // const [setInfoText, setSetInfoText] = useState('');
+type Props = {
+  alignment: string;
+  stateBestOfInfo: string;
+  handleButtonChange: (event: React.MouseEvent<HTMLElement>, newAlignment: string) => void;
+  handleTextChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+};
 
-  // const handleButtonChange = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
-  //   setAlignment(newAlignment);
-
-  //   // (event.target as HTMLButtonElement)
-  //   // →ボタンを操作したことで得たターゲットであることを型（HTMLButtonElement）として定義してる
-  //   if ((event.target as HTMLButtonElement).value === setInfoText) {
-  //     setSetInfoText('');
-  //   } else {
-  //     setSetInfoText((event.target as HTMLButtonElement).value);
-  //   }
-  // };
-
-  // const handleTextChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  //   setSetInfoText((event.target as HTMLButtonElement).value);
-  // };
-
+export function BestOfInfo({
+  alignment,
+  stateBestOfInfo,
+  handleButtonChange,
+  handleTextChange,
+}: Props) {
   return (
     <>
-      <Stack spacing={1}>
+      <Stack spacing={1} direction="row">
         <TextField
           id="bestOfInfo"
           label="Best of"
           variant="outlined"
           size="small"
-          value={setInfoText}
+          value={stateBestOfInfo}
           onChange={handleTextChange}
           sx={{ width: 150 }}
         />

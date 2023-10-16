@@ -2,8 +2,8 @@
 export interface ReplicantMap {
   playerName1p: string;
   playerName2p: string;
-  gameCount1p: string; //表示する上では文字列で問題ない、numberだと型定義がめんどくさそう
-  gameCount2p: string; //表示する上では文字列で問題ない、numberだと型定義がめんどくさそう
+  gameCount1p: number;
+  gameCount2p: number;
   roundInfo: string;
   bestOfInfo: string;
   tournamentInfo: string;
@@ -15,8 +15,8 @@ export interface ReplicantMap {
 export const replicantDefaultValues: ReplicantMap = {
   playerName1p: '',
   playerName2p: '',
-  gameCount1p: '0',
-  gameCount2p: '0',
+  gameCount1p: 0,
+  gameCount2p: 0,
   roundInfo: '',
   bestOfInfo: '',
   tournamentInfo: '',

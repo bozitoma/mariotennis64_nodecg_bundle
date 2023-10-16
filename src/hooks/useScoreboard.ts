@@ -1,32 +1,36 @@
-import { useState } from 'react';
+import { ReactEventHandler, useState } from 'react';
 
 export const useCharacterInfo = () => {
-  const [character1P, setCharacter1P] = useState('');
-  const [character2P, setCharacter2P] = useState('');
+  const [stateCharacter1P, setStateCharacter1P] = useState('');
+  const [stateCharacter2P, setStateCharacter2P] = useState('');
 
-  const choseCharacter1p = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCharacter1P((event.target as HTMLButtonElement).value);
+  const choseCharacter1p: ReactEventHandler<HTMLDivElement> = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setStateCharacter1P(event.target.value);
   };
 
-  const choseCharacter2p = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCharacter2P(event.target.value);
+  const choseCharacter2p: ReactEventHandler<HTMLDivElement> = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setStateCharacter2P(event.target.value);
   };
 
   const characterReset = () => {
-    setCharacter1P('');
-    setCharacter2P('');
+    setStateCharacter1P('');
+    setStateCharacter2P('');
   };
 
   const characterSwap = () => {
-    setCharacter1P(character2P);
-    setCharacter2P(character1P);
+    setStateCharacter1P(stateCharacter2P);
+    setStateCharacter2P(stateCharacter1P);
   };
 
   return {
-    character1P,
-    setCharacter1P,
-    character2P,
-    setCharacter2P,
+    stateCharacter1P,
+    setStateCharacter1P,
+    stateCharacter2P,
+    setStateCharacter2P,
     choseCharacter1p,
     choseCharacter2p,
     characterSwap,
@@ -38,12 +42,16 @@ export const usePlayerInfo = () => {
   const [statePlayer1p, setStatePlayer1p] = useState('');
   const [statePlayer2p, setStatePlayer2p] = useState('');
 
-  const playerName1p = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setStatePlayer1p((event.target as HTMLButtonElement).value);
+  const playerName1p: ReactEventHandler<HTMLDivElement> = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setStatePlayer1p(event.target.value);
   };
 
-  const playerName2p = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setStatePlayer2p((event.target as HTMLButtonElement).value);
+  const playerName2p: ReactEventHandler<HTMLDivElement> = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setStatePlayer2p(event.target.value);
   };
 
   const playerReset = () => {
@@ -69,62 +77,52 @@ export const usePlayerInfo = () => {
 };
 
 export const useScore = () => {
-  const [count1P, setCount1p] = useState(0);
-  const [count2P, setCount2p] = useState(0);
-
-  const score1P = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCount1p(Math.max(Number(event.target.value), 0));
-  };
-
-  const score2P = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCount2p(Math.max(Number(event.target.value), 0));
-  };
+  const [stateScore1p, setStateScore1p] = useState(0);
+  const [stateScore2p, setStateScore2p] = useState(0);
 
   const scoreReset = () => {
-    setCount1p(0);
-    setCount2p(0);
+    setStateScore1p(0);
+    setStateScore2p(0);
   };
 
   return {
-    count1P,
-    count2P,
-    setCount1p,
-    setCount2p,
-    score1P,
-    score2P,
+    stateScore1p,
+    stateScore2p,
+    setStateScore1p,
+    setStateScore2p,
     scoreReset,
   };
 };
 
 export const useBestOfInfo = () => {
   const [alignment, setAlignment] = useState('');
-  const [setInfoText, setSetInfoText] = useState('');
+  const [stateBestOfInfo, setStateBestOfInfo] = useState('');
 
   const handleButtonChange = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
     setAlignment(newAlignment);
 
     // (event.target as HTMLButtonElement)
     // →ボタンを操作したことで得たターゲットであることを型（HTMLButtonElement）として定義してる
-    if ((event.target as HTMLButtonElement).value === setInfoText) {
-      setSetInfoText('');
+    if ((event.target as HTMLButtonElement).value === stateBestOfInfo) {
+      setStateBestOfInfo('');
     } else {
-      setSetInfoText((event.target as HTMLButtonElement).value);
+      setStateBestOfInfo((event.target as HTMLButtonElement).value);
     }
   };
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setSetInfoText((event.target as HTMLButtonElement).value);
+    setStateBestOfInfo((event.target as HTMLButtonElement).value);
   };
 
   const bestOfInfoReset = () => {
-    setSetInfoText('');
+    setStateBestOfInfo('');
   };
 
   return {
     alignment,
     setAlignment,
-    setInfoText,
-    setSetInfoText,
+    stateBestOfInfo,
+    setStateBestOfInfo,
     handleButtonChange,
     handleTextChange,
     bestOfInfoReset,
@@ -132,18 +130,21 @@ export const useBestOfInfo = () => {
 };
 
 export const useRoundInfo = () => {
-  const [stateRound, setStateRound] = useState('');
+  const [stateRoundInfo, setStateRoundInfo] = useState('');
 
-  const selectRound = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setStateRound((event.target as HTMLButtonElement).value);
+  const selectRound: ReactEventHandler<HTMLDivElement> = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setStateRoundInfo(event.target.value);
   };
 
   const roundReset = () => {
-    setStateRound('');
+    setStateRoundInfo('');
   };
 
   return {
-    stateRound,
+    stateRoundInfo,
+    setStateRoundInfo,
     selectRound,
     roundReset,
   };

@@ -2,15 +2,18 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Stack } from '@mui/material';
 import { SwapButtons } from './button';
-import { MouseEventHandler } from 'react';
-// import { usePlayerInfo } from '../hooks/useScoreboard';
-// import { useReplicant } from '../hooks/useReplicant';
+import { MouseEventHandler, ReactEventHandler } from 'react';
 
 type Props = {
-  id: string;
-  label: string;
-  value: string;
+  id?: string;
+  label?: string;
+  value?: string;
   onSelect?: MouseEventHandler<HTMLDivElement> | undefined;
+  statePlayer1p?: string;
+  statePlayer2p?: string;
+  playerName1p?: ReactEventHandler<HTMLDivElement>;
+  playerName2p?: ReactEventHandler<HTMLDivElement>;
+  playerSwap?: () => void;
 };
 
 export function PlayerInfo({ id, label, value, onSelect }: Props) {
@@ -35,7 +38,7 @@ export function PlayerInfoSwap({
   playerName1p,
   playerName2p,
   playerSwap,
-}) {
+}: Props) {
   return (
     <Stack direction="row" spacing={2}>
       <PlayerInfo

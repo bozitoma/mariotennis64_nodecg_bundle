@@ -1,30 +1,80 @@
 import { Alert, Button, Snackbar, Stack } from '@mui/material';
 import { Buttons } from './button';
-import { useReplicant } from '../hooks/useReplicant';
-import { useState } from 'react';
+import { Dispatch, useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
+import { useRepList } from '../hooks/useRepList';
 
-// type Props = {
-//   id: string;
-//   label: string;
-//   variant: TextFieldVariants | undefined;
-//   width: number;
-//   size: 'small' | 'medium' | undefined;
-//   value?: string;
-// };
+type Props = {
+  // Score
+  stateScore1p: number;
+  setStateScore1p: Dispatch<React.SetStateAction<number>>;
+  stateScore2p: number;
+  setStateScore2p: Dispatch<React.SetStateAction<number>>;
+  scoreReset: () => void;
+
+  // Player
+  statePlayer1p: string;
+  setStatePlayer1p: Dispatch<React.SetStateAction<string>>;
+  statePlayer2p: string;
+  setStatePlayer2p: Dispatch<React.SetStateAction<string>>;
+  playerReset: () => void;
+
+  // Character
+  stateCharacter1P: string;
+  setStateCharacter1P: Dispatch<React.SetStateAction<string>>;
+  stateCharacter2P: string;
+  setStateCharacter2P: Dispatch<React.SetStateAction<string>>;
+  characterReset: () => void;
+
+  // Round
+  stateRoundInfo: string;
+  setStateRoundInfo: Dispatch<React.SetStateAction<string>>;
+  roundReset: () => void;
+
+  // BestOfInfo
+  stateBestOfInfo: string;
+  setStateBestOfInfo: Dispatch<React.SetStateAction<string>>;
+};
 
 export function ButtonSubmitReset({
-  playerReset,
-  characterReset,
+  // Score
+  stateScore1p,
+  setStateScore1p,
+  stateScore2p,
+  setStateScore2p,
   scoreReset,
-  bestOfInfoReset,
+
+  // Player
+  statePlayer1p,
+  setStatePlayer1p,
+  statePlayer2p,
+  setStatePlayer2p,
+  playerReset,
+
+  // Character
+  stateCharacter1P,
+  setStateCharacter1P,
+  stateCharacter2P,
+  setStateCharacter2P,
+  characterReset,
+
+  // Round
+  stateRoundInfo,
+  setStateRoundInfo,
   roundReset,
-}) {
+
+  // BestOfInfo
+  stateBestOfInfo,
+  setStateBestOfInfo,
+}: Props) {
   // Submitのスナックバー
   const [submitOpen, setSubmitOpen] = useState(false);
-  const handleSubmitClose = (reason?: string) => {
+  const handleSubmitClose = (
+    _event?: Event | React.SyntheticEvent<Element, Event> | undefined,
+    reason?: string
+  ) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -46,38 +96,37 @@ export function ButtonSubmitReset({
     setResetCompleteOpen(false);
   };
 
-  // const { playerReset } = usePlayerInfo();
-
-  const [, setBestOfInfo] = useReplicant('bestOfInfo');
-  const [, setTournamentInfo] = useReplicant('tournamentInfo');
-  const [, setRoundInfo] = useReplicant('roundInfo');
-  const [, setPlayer1p] = useReplicant('playerName1p');
-  const [, setPlayer2p] = useReplicant('playerName2p');
-  const [, setCharacterSelect1p] = useReplicant('characterInfo1p');
-  const [, setCharacterSelect2p] = useReplicant('characterInfo2p');
-  const [, setGameCount1p] = useReplicant('gameCount1p');
-  const [, setGameCount2p] = useReplicant('gameCount2p');
-
-  const bestOfInfo = document.getElementById('bestOfInfo') as HTMLInputElement;
-  const tournamentInfo = document.getElementById('tournamentInfo') as HTMLInputElement;
-  const roundInfo = document.getElementById('roundInfo') as HTMLInputElement;
-  const player1P = document.getElementById('player1P') as HTMLInputElement;
-  const player2P = document.getElementById('player2P') as HTMLInputElement;
-  const characterSelect1P = document.getElementById('characterSelect1P') as HTMLInputElement;
-  const characterSelect2P = document.getElementById('characterSelect2P') as HTMLInputElement;
-  const gameCount1p = document.getElementById('gameCount1p') as HTMLInputElement;
-  const gameCount2p = document.getElementById('gameCount2p') as HTMLInputElement;
+  const {
+    repBestOfInfo,
+    setRepBestOfInfo,
+    // repTournamentInfo,
+    // setRepTournamentInfo,
+    repRoundInfo,
+    setRepRoundInfo,
+    repPlayer1p,
+    setRepPlayer1p,
+    repPlayer2p,
+    setRepPlayer2p,
+    repCharacterSelect1p,
+    setRepCharacterSelect1p,
+    repCharacterSelect2p,
+    setRepCharacterSelect2p,
+    repGameCount1p,
+    setRepGameCount1p,
+    repGameCount2p,
+    setRepGameCount2p,
+  } = useRepList();
 
   const submit = () => {
-    setBestOfInfo(bestOfInfo.value);
-    setTournamentInfo(tournamentInfo.value);
-    setRoundInfo(roundInfo.value);
-    setPlayer1p(player1P.value);
-    setPlayer2p(player2P.value);
-    setCharacterSelect1p(characterSelect1P.value);
-    setCharacterSelect2p(characterSelect2P.value);
-    setGameCount1p(gameCount1p.value);
-    setGameCount2p(gameCount2p.value);
+    // setRepTournamentInfo(tournamentInfo.value);
+    setRepBestOfInfo(stateBestOfInfo);
+    setRepRoundInfo(stateRoundInfo);
+    setRepPlayer1p(statePlayer1p);
+    setRepPlayer2p(statePlayer2p);
+    setRepCharacterSelect1p(stateCharacter1P);
+    setRepCharacterSelect2p(stateCharacter2P);
+    setRepGameCount1p(stateScore1p);
+    setRepGameCount2p(stateScore2p);
     setSubmitOpen(true); // Submit完了のスナックバーを表示
   };
 
@@ -85,10 +134,20 @@ export function ButtonSubmitReset({
     playerReset();
     characterReset();
     scoreReset();
-    // bestOfInfoReset();
     roundReset();
     setResetOpen(false); // Resetのモーダルを閉じる
     setResetCompleteOpen(true); // Reset完了のスナックバーを表示
+  };
+
+  const restore = () => {
+    setStatePlayer1p(repPlayer1p as string);
+    setStatePlayer2p(repPlayer2p as string);
+    setStateCharacter1P(repCharacterSelect1p as string);
+    setStateCharacter2P(repCharacterSelect2p as string);
+    setStateRoundInfo(repRoundInfo as string);
+    setStateBestOfInfo(repBestOfInfo as string);
+    setStateScore1p(repGameCount1p as number);
+    setStateScore2p(repGameCount2p as number);
   };
 
   return (
@@ -102,6 +161,7 @@ export function ButtonSubmitReset({
           width={150}
           onClick={handleResetOpen}
         />
+        <Buttons variant="text" text="restore" color="primary" width={150} onClick={restore} />
       </Stack>
 
       {/* Submitのスナックバー */}

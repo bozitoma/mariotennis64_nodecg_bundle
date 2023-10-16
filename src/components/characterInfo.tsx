@@ -2,13 +2,17 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { SwapButtons } from './button';
 import { MouseEventHandler } from 'react';
-import { useCharacterInfo } from '../hooks/useScoreboard';
 
 type Props = {
-  id: string;
-  label: string;
+  id?: string;
+  label?: string;
   value?: string;
   onSelect?: MouseEventHandler<HTMLDivElement> | undefined;
+  stateCharacter1P?: string;
+  stateCharacter2P?: string;
+  choseCharacter1p?: MouseEventHandler<HTMLDivElement>;
+  choseCharacter2p?: MouseEventHandler<HTMLDivElement>;
+  characterSwap?: () => void;
 };
 
 export function CharacterInfo({ id, label, value, onSelect }: Props) {
@@ -29,25 +33,25 @@ export function CharacterInfo({ id, label, value, onSelect }: Props) {
 }
 
 export function CharacterInfoSwap({
-  character1P,
-  character2P,
+  stateCharacter1P,
+  stateCharacter2P,
   choseCharacter1p,
   choseCharacter2p,
   characterSwap,
-}) {
+}: Props) {
   return (
     <>
       <CharacterInfo
         id="characterSelect1P"
         label="1P Character"
-        value={character1P}
-        onSelect={choseCharacter1p} //エラー消したい
+        value={stateCharacter1P}
+        onSelect={choseCharacter1p}
       />
       <SwapButtons onClick={characterSwap} />
       <CharacterInfo
         id="characterSelect2P"
         label="2P Character"
-        value={character2P}
+        value={stateCharacter2P}
         onSelect={choseCharacter2p}
       />
     </>

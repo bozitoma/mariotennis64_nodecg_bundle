@@ -1,13 +1,11 @@
 // 参考 https://codesandbox.io/s/material-ui-counter-yo5tx?file=/src/App.js:0-1618
-
-// import * as React from 'react';
-// import { useState } from 'react';
 import { ButtonGroup, Button, TextField, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { blueGrey } from '@mui/material/colors';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { ClearButtons } from './button';
+import { Dispatch } from 'react';
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(blueGrey[50]),
@@ -39,36 +37,54 @@ const StyledInput = styled(TextField)({
   },
 });
 
-export function Counter({
-  count1P,
-  count2P,
-  setCount1p,
-  setCount2p,
-  score1P,
-  score2P,
+type Props = {
+  stateScore1p: number;
+  stateScore2p: number;
+  setStateScore1p: Dispatch<React.SetStateAction<number>>;
+  setStateScore2p: Dispatch<React.SetStateAction<number>>;
+  scoreReset: () => void;
+};
+
+export function ScoreCounter({
+  stateScore1p,
+  stateScore2p,
+  setStateScore1p,
+  setStateScore2p,
   scoreReset,
-}) {
+}: Props) {
   return (
     <>
       <Stack direction="row" spacing={2}>
         <ButtonGroup>
-          <StyledInput id="gameCount1p" size="small" onChange={score1P} value={count1P} />
-          <StyledButton onClick={() => setCount1p((prev) => prev - 1)} disabled={count1P === 0}>
+          <StyledInput id="gameCount1p" size="small" value={stateScore1p} />
+          <StyledButton
+            onClick={() => setStateScore1p((prev: number) => prev - 1)}
+            disabled={stateScore1p === 0}
+          >
             <RemoveIcon fontSize="small" />
           </StyledButton>
-          <StyledButton onClick={() => setCount1p((prev) => prev + 1)} disabled={count1P === 3}>
+          <StyledButton
+            onClick={() => setStateScore1p((prev: number) => prev + 1)}
+            disabled={stateScore1p === 3}
+          >
             <AddIcon fontSize="small" />
           </StyledButton>
         </ButtonGroup>
         <ClearButtons onClick={scoreReset} />
         <ButtonGroup>
-          <StyledButton onClick={() => setCount2p((prev) => prev + 1)} disabled={count2P === 3}>
+          <StyledButton
+            onClick={() => setStateScore2p((prev: number) => prev + 1)}
+            disabled={stateScore2p === 3}
+          >
             <AddIcon fontSize="small" />
           </StyledButton>
-          <StyledButton onClick={() => setCount2p((prev) => prev - 1)} disabled={count2P === 0}>
+          <StyledButton
+            onClick={() => setStateScore2p((prev: number) => prev - 1)}
+            disabled={stateScore2p === 0}
+          >
             <RemoveIcon fontSize="small" />
           </StyledButton>
-          <StyledInput id="gameCount2p" size="small" onChange={score2P} value={count2P} />
+          <StyledInput id="gameCount2p" size="small" value={stateScore2p} />
         </ButtonGroup>
       </Stack>
     </>

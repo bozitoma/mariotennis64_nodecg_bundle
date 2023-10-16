@@ -1,6 +1,6 @@
 import { ButtonSubmitReset } from '../components/submitButton';
 import { CharacterInfoSwap } from '../components/characterInfo';
-import { Counter } from '../components/counter';
+import { ScoreCounter } from '../components/counter';
 import { BestOfInfo } from '../components/bestOfInfo';
 import { RoundInfo } from '../components/roundInfo';
 import { Stack } from '@mui/material';
@@ -13,45 +13,55 @@ import {
   useRoundInfo,
   useScore,
 } from '../hooks/useScoreboard';
-import { TounamentInfo } from '../components/tournamentInfo';
+import { Status } from '../components/Status';
 
 function App() {
-  const { statePlayer1p, statePlayer2p, playerName1p, playerName2p, playerSwap, playerReset } =
-    usePlayerInfo();
+  const {
+    statePlayer1p,
+    setStatePlayer1p,
+    statePlayer2p,
+    setStatePlayer2p,
+    playerName1p,
+    playerName2p,
+    playerSwap,
+    playerReset,
+  } = usePlayerInfo();
 
   const {
-    character1P,
-    character2P,
+    stateCharacter1P,
+    setStateCharacter1P,
+    stateCharacter2P,
+    setStateCharacter2P,
     choseCharacter1p,
     choseCharacter2p,
     characterSwap,
     characterReset,
   } = useCharacterInfo();
 
-  const { count1P, count2P, setCount1p, setCount2p, score1P, score2P, scoreReset } = useScore();
+  const { stateScore1p, setStateScore1p, stateScore2p, setStateScore2p, scoreReset } = useScore();
 
-  const { alignment, setInfoText, handleButtonChange, handleTextChange, bestOfInfoReset } =
+  const { alignment, stateBestOfInfo, setStateBestOfInfo, handleButtonChange, handleTextChange } =
     useBestOfInfo();
 
-  const { stateRound, selectRound, roundReset } = useRoundInfo();
+  const { stateRoundInfo, setStateRoundInfo, selectRound, roundReset } = useRoundInfo();
 
   return (
     <>
       <Stack spacing={2}>
         <Stack direction="row" spacing={2}>
-          <RoundInfo stateRound={stateRound} selectRound={selectRound} />
+          <RoundInfo stateRoundInfo={stateRoundInfo} selectRound={selectRound} />
           <BestOfInfo
             alignment={alignment}
-            setInfoText={setInfoText}
+            stateBestOfInfo={stateBestOfInfo}
             handleButtonChange={handleButtonChange}
             handleTextChange={handleTextChange}
           />
-          <TounamentInfo />
+          {/* <TounamentInfo /> */}
         </Stack>
         <Stack direction="row" spacing={2}>
           <CharacterInfoSwap
-            character1P={character1P}
-            character2P={character2P}
+            stateCharacter1P={stateCharacter1P}
+            stateCharacter2P={stateCharacter2P}
             choseCharacter1p={choseCharacter1p}
             choseCharacter2p={choseCharacter2p}
             characterSwap={characterSwap}
@@ -65,24 +75,43 @@ function App() {
           playerSwap={playerSwap}
         />
         <Stack spacing={2}>
-          <Counter
-            count1P={count1P}
-            count2P={count2P}
-            setCount1p={setCount1p}
-            setCount2p={setCount2p}
-            score1P={score1P}
-            score2P={score2P}
+          <ScoreCounter
+            stateScore1p={stateScore1p}
+            stateScore2p={stateScore2p}
+            setStateScore1p={setStateScore1p}
+            setStateScore2p={setStateScore2p}
             scoreReset={scoreReset}
           />
         </Stack>
         <ButtonSubmitReset
-          playerReset={playerReset}
-          characterReset={characterReset}
+          // Score
+          stateScore1p={stateScore1p}
+          stateScore2p={stateScore2p}
+          setStateScore1p={setStateScore1p}
+          setStateScore2p={setStateScore2p}
           scoreReset={scoreReset}
-          bestOfInfoReset={bestOfInfoReset}
+          // Player
+          statePlayer1p={statePlayer1p}
+          statePlayer2p={statePlayer2p}
+          setStatePlayer1p={setStatePlayer1p}
+          setStatePlayer2p={setStatePlayer2p}
+          playerReset={playerReset}
+          // Character
+          stateCharacter1P={stateCharacter1P}
+          stateCharacter2P={stateCharacter2P}
+          setStateCharacter1P={setStateCharacter1P}
+          setStateCharacter2P={setStateCharacter2P}
+          characterReset={characterReset}
+          // Round
+          stateRoundInfo={stateRoundInfo}
+          setStateRoundInfo={setStateRoundInfo}
           roundReset={roundReset}
+          // BestOfInfo
+          stateBestOfInfo={stateBestOfInfo}
+          setStateBestOfInfo={setStateBestOfInfo}
         />
       </Stack>
+      <Status />
     </>
   );
 }
