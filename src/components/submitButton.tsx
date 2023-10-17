@@ -150,6 +150,10 @@ export function ButtonSubmitReset({
     setStateScore2p(repGameCount2p as number);
   };
 
+  const alert = () => {
+    nodecg.sendMessage('alert');
+  };
+
   return (
     <>
       <Stack direction="row" spacing={2}>
@@ -162,6 +166,7 @@ export function ButtonSubmitReset({
           onClick={handleResetOpen}
         />
         <Buttons variant="text" text="restore" color="primary" width={150} onClick={restore} />
+        <Buttons variant="text" text="Alert" color="primary" width={150} onClick={alert} />
       </Stack>
 
       {/* Submitのスナックバー */}

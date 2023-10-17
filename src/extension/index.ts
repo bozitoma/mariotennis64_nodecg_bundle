@@ -1,6 +1,6 @@
 import NodeCG from '@nodecg/types';
 
-module.exports = (nodecg: NodeCG.ServerAPI) => {
+export default (nodecg: NodeCG.ServerAPI) => {
   const alert = () => {
     console.log('extensionは動いています');
   };
