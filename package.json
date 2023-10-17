@@ -2,7 +2,6 @@
   "name": "mariotennis64",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -16,24 +15,26 @@
       {
         "name": "dashboard",
         "title": "dashboard",
-        "file": "index.html",
+        "file": "main.html",
         "width": 6,
         "headerColor": "#525F78"
       }
     ],
     "graphics": [
       {
-        "file": "index.html",
+        "file": "main.html",
         "width": 1920,
         "height": 1080
       }
     ]
   },
   "dependencies": {
+    "@apollo/client": "^3.8.5",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.10",
+    "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -48,7 +49,10 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "globby": "^13.1.4",
     "prettier": "2.8.8",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rollup-plugin-node-externals": "^5.1.2",
     "ts-nodecg": "^0.3.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
