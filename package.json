@@ -16,14 +16,14 @@
         "name": "Scoreboard",
         "title": "Scoreboard",
         "file": "scoreboard.html",
-        "width": 6,
+        "width": 5,
         "headerColor": "#525F78"
       },
       {
         "name": "Status",
         "title": "Status",
         "file": "status.html",
-        "width": 6,
+        "width": 5,
         "headerColor": "#525F78"
       }
     ],

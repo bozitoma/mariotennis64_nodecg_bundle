@@ -31,7 +31,7 @@ const StyledInput = styled(TextField)({
     },
     '& input': {
       textAlign: 'center',
-      width: 170,
+      width: 140,
       color: blueGrey[700],
     },
   },
