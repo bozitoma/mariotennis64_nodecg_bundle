@@ -14,8 +14,8 @@ export default defineConfig({
     react(),
     nodecg({
       bundleName: 'mariotennis64',
-      graphics: './src/graphics/main.tsx',
-      dashboard: './src/dashboard/main.tsx',
+      graphics: './src/graphics/*.tsx',
+      dashboard: './src/dashboard/*.tsx',
       extension: {
         input: './src/extension/index.ts',
         plugins: [rollupEsbuild(), rollupExternals()],
