@@ -1,0 +1,10 @@
+.icon {
+  height: 70px;
+  width: 70px;
+}
+
+.score {
+  font-weight: 1000;
+  text-align: center;
+  font-size: 46px;
+}
