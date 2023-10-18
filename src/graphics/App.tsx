@@ -36,8 +36,8 @@ function App() {
   const result1p = characterIcon.find(({ label }) => label === repCharacterSelect1p);
   const result2p = characterIcon.find(({ label }) => label === repCharacterSelect2p);
 
-  const characterIcon1p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result1p?.value}MT.png`;
-  const characterIcon2p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result2p?.value}MT.png`;
+  const characterIcon1p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result1p?.value}.png`;
+  const characterIcon2p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result2p?.value}.png`;
 
   return (
     <>
@@ -55,21 +55,25 @@ function App() {
       <div className="mario-tennis">
         <div className="overlap-group-wrapper">
           <div className="overlap-group">
-            <div className="name-1p">{repPlayer1p}</div>
-            <div className="name-2p">{repPlayer2p}</div>
-            <div className="score-1p" color="url(#paint0_linear_10_76)">
-              {repGameCount1p}
+            <div className="player-names">
+              <div className="name-1p">{repPlayer1p}</div>
+              <div className="name-2p">{repPlayer2p}</div>
             </div>
-            <div className="score-2p" color="url(#paint0_linear_10_76)">
-              {repGameCount2p}
+            <div className="score">
+              <div className="score-1p" color="url(#paint0_linear_10_76)">
+                {repGameCount1p}
+              </div>
+              <div className="score-2p" color="url(#paint0_linear_10_76)">
+                {repGameCount2p}
+              </div>
             </div>
-            <div className=".info">
+            <div className="info">
               <div className="bestOfInfo">{repBestOfInfo}</div>
               <div className="roundInfo">{repRoundInfo}</div>
             </div>
-            <img className="icon-1p" src={characterIcon1p} alt="" />
-            <img className="icon-2p" src={characterIcon2p} alt="" />
           </div>
+          <img className="icon-1p" src={characterIcon1p} alt="" />
+          <img className="icon-2p" src={characterIcon2p} alt="" />
         </div>
       </div>
     </>

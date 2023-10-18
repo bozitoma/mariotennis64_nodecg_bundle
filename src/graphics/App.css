@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Noto Sans JP', sans-serif;
+  src: url(../assets/font/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf);
+}
+
 .mario-tennis {
   background-color: transparent;
   display: flex;
@@ -22,40 +27,58 @@
   width: 1440px;
 }
 
-.mario-tennis .name-2p {
-  height: 60px !important;
-  left: 925px !important;
-  position: absolute !important;
-  top: 5px !important;
-  width: 440px !important;
+.mario-tennis .player-names {
+  color: rgb(20, 20, 20);
+  font-family: 'Noto Sans-DisplayBold', Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .mario-tennis .name-1p {
-  left: 75px !important;
-  top: 5px !important;
+  height: 60px;
+  left: 5px;
+  position: absolute;
+  top: 15px;
+  width: 510px;
+}
+
+.mario-tennis .name-2p {
+  height: 60px;
+  left: 925px;
+  position: absolute;
+  top: 15px;
+  width: 510px;
+}
+
+.mario-tennis .score {
+  color: aliceblue;
+  font-family: 'Noto Sans-DisplayBold', Helvetica;
+  font-size: 48px;
+  font-weight: 700;
 }
 
 .mario-tennis .score-1p {
-  height: 60px !important;
-  left: 530px !important;
-  position: absolute !important;
-  top: 5px !important;
-  width: 60px !important;
+  height: 60px;
+  left: 547px;
+  position: absolute;
+  top: 9px;
+  width: 60px;
 }
 
 .mario-tennis .score-2p {
-  height: 60px !important;
-  left: 850px !important;
-  position: absolute !important;
-  top: 5px !important;
-  width: 60px !important;
+  height: 60px;
+  left: 867px;
+  position: absolute;
+  top: 9px;
+  width: 60px;
 }
 
 .mario-tennis .info {
   height: 60px;
   left: 605px;
   position: absolute;
-  top: 5px;
+  top: 9px;
   width: 234px;
 }
 
@@ -90,13 +113,17 @@
 }
 
 .mario-tennis .icon-1p {
-  left: 1370px !important;
-  position: absolute !important;
-  top: 0 !important;
+  left: 0;
+  position: absolute;
+  top: 280px;
+  width: 240px;
+  height: 400px;
 }
 
 .mario-tennis .icon-2p {
-  left: 0 !important;
-  position: absolute !important;
-  top: 0 !important;
+  left: 1680px;
+  position: absolute;
+  top: 280px;
+  width: 240px;
+  height: 400px;
 }
