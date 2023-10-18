@@ -1,9 +1,11 @@
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Stack, TextField } from '@mui/material';
+import { Dispatch, useEffect } from 'react';
 
 type Props = {
   alignment: string;
+  setAlignment: Dispatch<React.SetStateAction<string>>;
   stateBestOfInfo: string;
   handleButtonChange: (event: React.MouseEvent<HTMLElement>, newAlignment: string) => void;
   handleTextChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
@@ -11,10 +13,24 @@ type Props = {
 
 export function BestOfInfo({
   alignment,
+  setAlignment,
   stateBestOfInfo,
   handleButtonChange,
   handleTextChange,
 }: Props) {
+  useEffect(() => {
+    if (stateBestOfInfo === 'Best of 5') {
+      setAlignment('Best of 5');
+    } else if (stateBestOfInfo === 'Best of 3') {
+      setAlignment('Best of 3');
+    } else if (stateBestOfInfo === 'Best of 1') {
+      setAlignment('Best of 1');
+    } else {
+      setAlignment('');
+    }
+    return;
+  }, [stateBestOfInfo, alignment]);
+
   return (
     <>
       <Stack spacing={1} direction="row">
