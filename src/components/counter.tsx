@@ -20,7 +20,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 const StyledInput = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderRadius: 0,
+      borderRadius: 2,
       borderColor: blueGrey[200],
     },
     '&:hover fieldset': {
@@ -31,7 +31,7 @@ const StyledInput = styled(TextField)({
     },
     '& input': {
       textAlign: 'center',
-      width: 140,
+      width: 170,
       color: blueGrey[700],
     },
   },

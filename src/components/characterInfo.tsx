@@ -23,7 +23,7 @@ export function CharacterInfo({ id, label, value, onSelect }: Props) {
         id={id}
         options={characterIcon.map((option) => option.label)}
         renderInput={(params) => <TextField {...params} label={label} />}
-        sx={{ width: 300 }}
+        sx={{ width: 302 }}
         size="small"
         value={value}
         onSelect={onSelect}

@@ -1,10 +1,15 @@
 import { Alert, Button, Snackbar, Stack } from '@mui/material';
-import { Buttons } from './button';
 import { Dispatch, useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRepList } from '../hooks/useRepList';
+import { Scoreboard } from '../types/scoreboard';
+
+// Marerial Icons
+import SendIcon from '@mui/icons-material/Send';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ReplayIcon from '@mui/icons-material/Replay';
 
 type Props = {
   // Score
@@ -15,11 +20,10 @@ type Props = {
   scoreReset: () => void;
 
   // Player
-  statePlayer1p: string;
-  setStatePlayer1p: Dispatch<React.SetStateAction<string>>;
-  statePlayer2p: string;
-  setStatePlayer2p: Dispatch<React.SetStateAction<string>>;
-  playerReset: () => void;
+  player1: string;
+  player2: string;
+  setScoreboardInfo: Dispatch<React.SetStateAction<Scoreboard>>;
+  // playerNameReset: () => void;
 
   // Character
   stateCharacter1P: string;
@@ -29,8 +33,7 @@ type Props = {
   characterReset: () => void;
 
   // Round
-  stateRoundInfo: string;
-  setStateRoundInfo: Dispatch<React.SetStateAction<string>>;
+  roundText: string;
   roundReset: () => void;
 
   // BestOfInfo
@@ -38,7 +41,7 @@ type Props = {
   setStateBestOfInfo: Dispatch<React.SetStateAction<string>>;
 };
 
-export function ButtonSubmitReset({
+export const ButtonSubmitReset = ({
   // Score
   stateScore1p,
   setStateScore1p,
@@ -47,13 +50,11 @@ export function ButtonSubmitReset({
   scoreReset,
 
   // Player
-  statePlayer1p,
-  setStatePlayer1p,
-  statePlayer2p,
-  setStatePlayer2p,
-  playerReset,
+  player1,
+  player2,
+  setScoreboardInfo,
 
-  // Character
+  //  Character
   stateCharacter1P,
   setStateCharacter1P,
   stateCharacter2P,
@@ -61,14 +62,12 @@ export function ButtonSubmitReset({
   characterReset,
 
   // Round
-  stateRoundInfo,
-  setStateRoundInfo,
-  roundReset,
+  roundText,
 
   // BestOfInfo
   stateBestOfInfo,
   setStateBestOfInfo,
-}: Props) {
+}: Props) => {
   // Submitのスナックバー
   const [submitOpen, setSubmitOpen] = useState(false);
   const handleSubmitClose = (
@@ -99,8 +98,6 @@ export function ButtonSubmitReset({
   const {
     repBestOfInfo,
     setRepBestOfInfo,
-    // repTournamentInfo,
-    // setRepTournamentInfo,
     repRoundInfo,
     setRepRoundInfo,
     repPlayer1p,
@@ -118,11 +115,10 @@ export function ButtonSubmitReset({
   } = useRepList();
 
   const submit = () => {
-    // setRepTournamentInfo(tournamentInfo.value);
     setRepBestOfInfo(stateBestOfInfo);
-    setRepRoundInfo(stateRoundInfo);
-    setRepPlayer1p(statePlayer1p);
-    setRepPlayer2p(statePlayer2p);
+    setRepRoundInfo(roundText);
+    setRepPlayer1p(player1);
+    setRepPlayer2p(player2);
     setRepCharacterSelect1p(stateCharacter1P);
     setRepCharacterSelect2p(stateCharacter2P);
     setRepGameCount1p(stateScore1p);
@@ -131,55 +127,98 @@ export function ButtonSubmitReset({
   };
 
   const reset = () => {
-    playerReset();
+    setScoreboardInfo((prev: any) => ({
+      ...prev,
+      Player1: {
+        ...prev.Player1,
+        name: '',
+      },
+      Player2: {
+        ...prev.Player2,
+        name: '',
+      },
+      RoundInfo: '',
+    }));
     characterReset();
     scoreReset();
-    roundReset();
     setResetOpen(false); // Resetのモーダルを閉じる
     setResetCompleteOpen(true); // Reset完了のスナックバーを表示
   };
 
   const restore = () => {
-    setStatePlayer1p(repPlayer1p as string);
-    setStatePlayer2p(repPlayer2p as string);
+    setScoreboardInfo((prev: any) => ({
+      ...prev,
+      Player1: {
+        ...prev.Player1,
+        name: repPlayer1p as string,
+      },
+      Player2: {
+        ...prev.Player2,
+        name: repPlayer2p as string,
+      },
+      RoundInfo: repRoundInfo as string,
+    }));
+
     setStateCharacter1P(repCharacterSelect1p as string);
     setStateCharacter2P(repCharacterSelect2p as string);
-    setStateRoundInfo(repRoundInfo as string);
     setStateBestOfInfo(repBestOfInfo as string);
     setStateScore1p(repGameCount1p as number);
     setStateScore2p(repGameCount2p as number);
   };
 
-  const alert = () => {
-    nodecg.sendMessage('alert');
-  };
-
   return (
     <>
       <Stack direction="row" spacing={2}>
-        <Buttons variant="contained" text="submit" color="primary" width={300} onClick={submit} />
-        <Buttons
+        <Button
+          variant="contained"
+          color="primary"
+          startIcon={<SendIcon />}
+          sx={{ width: 330 }}
+          onClick={submit}
+        >
+          SUBMIT
+        </Button>
+        <Button
           variant="outlined"
-          text="reset"
           color="error"
-          width={150}
+          startIcon={<DeleteIcon />}
+          sx={{ width: 150 }}
           onClick={handleResetOpen}
-        />
-        <Buttons variant="text" text="restore" color="primary" width={150} onClick={restore} />
-        <Buttons variant="text" text="Alert" color="primary" width={150} onClick={alert} />
+        >
+          RESET
+        </Button>
+        <Button
+          variant="text"
+          color="primary"
+          startIcon={<ReplayIcon />}
+          sx={{ width: 150 }}
+          onClick={restore}
+        >
+          RESTORE
+        </Button>
       </Stack>
 
       {/* Submitのスナックバー */}
-      <Snackbar open={submitOpen} autoHideDuration={2000} onClose={handleSubmitClose}>
+      <Snackbar
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        open={submitOpen}
+        autoHideDuration={2000}
+        onClose={handleSubmitClose}
+      >
         <Alert onClose={handleSubmitClose} severity="success" sx={{ width: '100%' }}>
-          Success update!
+          スコアボードを更新しました！
         </Alert>
       </Snackbar>
 
       {/* Reset完了のスナックバー */}
-      <Snackbar open={resetCompleteOpen} autoHideDuration={2000} onClose={handleResetCompleteClose}>
+      <Snackbar
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        open={resetCompleteOpen}
+        autoHideDuration={2000}
+        onClose={handleResetCompleteClose}
+      >
         <Alert onClose={handleResetCompleteClose} severity="success" sx={{ width: '100%' }}>
-          Success reset!
+          スコアボードをリセットしました！
         </Alert>
       </Snackbar>
 
@@ -195,4 +234,4 @@ export function ButtonSubmitReset({
       </Dialog>
     </>
   );
-}
+};

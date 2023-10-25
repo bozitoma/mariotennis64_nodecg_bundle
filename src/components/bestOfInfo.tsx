@@ -41,7 +41,7 @@ export function BestOfInfo({
           size="small"
           value={stateBestOfInfo}
           onChange={handleTextChange}
-          sx={{ width: 150 }}
+          sx={{ width: 225 }}
         />
         <ToggleButtonGroup
           id="setInfoButton"
