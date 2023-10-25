@@ -15,7 +15,7 @@ export default defineConfig({
     nodecg({
       bundleName: 'mariotennis64',
       graphics: './src/graphics/*.tsx',
-      dashboard: './src/dashboard/*.tsx',
+      dashboard: './src/dashboard/main.tsx',
       extension: {
         input: './src/extension/index.ts',
         plugins: [rollupEsbuild(), rollupExternals()],
