@@ -4,7 +4,6 @@ import './App.css';
 function App() {
   const {
     repBestOfInfo,
-    // repTournamentInfo,
     repRoundInfo,
     repPlayer1p,
     repPlayer2p,
@@ -40,43 +39,30 @@ function App() {
   const characterIcon2p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result2p?.value}.png`;
 
   return (
-    <>
-      {/* <div>{bestOfInfo}</div>
-      <div>{tournamentInfo}</div>
-      <div>{roundInfo}</div>
-      <div>{player1p}</div>
-      <div>{player2p}</div>
-      <img src={characterIcon1p} alt="" />
-      <img src={characterIcon2p} alt="" />
-      <div>{characterSelect1p}</div>
-      <div>{characterSelect2p}</div>
-      <div>{gameCount1p}</div>
-      <div>{gameCount2p}</div> */}
-      <div className="mario-tennis">
-        <div className="overlap-group-wrapper">
-          <div className="overlap-group">
-            <div className="player-names">
-              <div className="name-1p">{repPlayer1p}</div>
-              <div className="name-2p">{repPlayer2p}</div>
+    <div className="mario-tennis">
+      <div className="overlap-group-wrapper">
+        <div className="overlap-group">
+          <div className="player-names">
+            <div className="name-1p">{repPlayer1p}</div>
+            <div className="name-2p">{repPlayer2p}</div>
+          </div>
+          <div className="score">
+            <div className="score-1p" color="url(#paint0_linear_10_76)">
+              {repGameCount1p}
             </div>
-            <div className="score">
-              <div className="score-1p" color="url(#paint0_linear_10_76)">
-                {repGameCount1p}
-              </div>
-              <div className="score-2p" color="url(#paint0_linear_10_76)">
-                {repGameCount2p}
-              </div>
-            </div>
-            <div className="info">
-              <div className="bestOfInfo">{repBestOfInfo}</div>
-              <div className="roundInfo">{repRoundInfo}</div>
+            <div className="score-2p" color="url(#paint0_linear_10_76)">
+              {repGameCount2p}
             </div>
           </div>
-          <img className="icon-1p" src={characterIcon1p} alt="" />
-          <img className="icon-2p" src={characterIcon2p} alt="" />
+          <div className="info">
+            <div className="bestOfInfo">{repBestOfInfo}</div>
+            <div className="roundInfo">{repRoundInfo}</div>
+          </div>
         </div>
       </div>
-    </>
+      <img className="icon-1p" src={characterIcon1p} alt="" />
+      <img className="icon-2p" src={characterIcon2p} alt="" />
+    </div>
   );
 }
 

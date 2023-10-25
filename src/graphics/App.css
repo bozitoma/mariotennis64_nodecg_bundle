@@ -3,89 +3,91 @@
   src: url(../assets/font/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf);
 }
 
+body {
+  background-image: url(../assets/scoreboard_mt64.png);
+  background-size: cover;
+  background-color: transparent;
+}
+/*
 .mario-tennis {
   background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
-}
 
+} */
+/*
 .mario-tennis .overlap-group-wrapper {
-  background-image: url(../assets/scoreboard_mt64.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 1080px;
-  width: 1920px;
-}
 
-.mario-tennis .overlap-group {
-  height: 70px;
-  left: 240px;
+} */
+
+.overlap-group {
+  top: 1265px;
+  left: 368px;
   position: relative;
-  top: 1010px;
+  height: 70px;
   width: 1440px;
 }
 
-.mario-tennis .player-names {
+.player-names {
   color: rgb(20, 20, 20);
   font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 700;
   text-align: center;
 }
 
-.mario-tennis .name-1p {
+.name-1p {
   height: 60px;
   left: 5px;
   position: absolute;
-  top: 15px;
+  top: 13px;
   width: 510px;
 }
 
-.mario-tennis .name-2p {
+.name-2p {
   height: 60px;
-  left: 925px;
+  left: 1161px;
   position: absolute;
-  top: 15px;
+  top: 13px;
   width: 510px;
 }
 
-.mario-tennis .score {
+.score {
   color: aliceblue;
   font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 48px;
+  font-size: 60px;
   font-weight: 700;
 }
 
-.mario-tennis .score-1p {
+.score-1p {
   height: 60px;
-  left: 547px;
+  left: 617px;
   position: absolute;
   top: 9px;
   width: 60px;
 }
 
-.mario-tennis .score-2p {
+.score-2p {
   height: 60px;
-  left: 867px;
+  left: 1017px;
   position: absolute;
   top: 9px;
   width: 60px;
 }
 
-.mario-tennis .info {
+.info {
   height: 60px;
-  left: 605px;
+  left: 717px;
   position: absolute;
-  top: 9px;
+  top: 14px;
   width: 234px;
 }
 
-.mario-tennis .bestOfInfo {
+.bestOfInfo {
   color: #ffffff;
   font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   height: 30px;
   left: 0;
@@ -97,10 +99,10 @@
   width: 230px;
 }
 
-.mario-tennis .roundInfo {
+.roundInfo {
   color: #ffffff;
   font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   height: 30px;
   left: 0;
@@ -112,18 +114,18 @@
   width: 230px;
 }
 
-.mario-tennis .icon-1p {
-  left: 0;
+.icon-1p {
+  left: 0px;
   position: absolute;
-  top: 280px;
-  width: 240px;
-  height: 400px;
+  top: 340px;
+  width: 302px;
+  height: 500px;
 }
 
-.mario-tennis .icon-2p {
-  left: 1680px;
+.icon-2p {
+  left: 2100px;
   position: absolute;
-  top: 280px;
-  width: 240px;
-  height: 400px;
+  top: 340px;
+  width: 302px;
+  height: 500px;
 }
