@@ -4,21 +4,21 @@ import { Stack } from '@mui/material';
 import { ReactEventHandler } from 'react';
 
 type Props = {
-  stateRoundInfo: string;
-  selectRound: ReactEventHandler<HTMLDivElement>;
+  roundText: string;
+  roundSelect: ReactEventHandler<HTMLDivElement>;
 };
 
-export function RoundInfo({ stateRoundInfo, selectRound }: Props) {
+export function RoundInfo({ roundText, roundSelect }: Props) {
   return (
-    <Stack spacing={2} sx={{ width: 300 }}>
+    <Stack spacing={2} sx={{ width: 302 }}>
       <Autocomplete
         id="roundInfo"
         freeSolo
         options={roundList.map((option) => option)}
         renderInput={(params) => <TextField {...params} label="Round" />}
         size="small"
-        onSelect={selectRound}
-        value={stateRoundInfo}
+        onSelect={roundSelect}
+        value={roundText}
       />
     </Stack>
   );
@@ -26,17 +26,17 @@ export function RoundInfo({ stateRoundInfo, selectRound }: Props) {
 
 const roundList = [
   'Winners',
-  'Winners TOP',
+  'Winners Top',
   'Winners Round',
   'Winners Quarter',
   'Winners Semi',
   'Winners Final',
-  'Winners',
-  'Winners TOP',
-  'Winners Round',
-  'Winners Quarter',
-  'Winners Semi',
-  'Winners Final',
+  'Losers',
+  'Losers Top',
+  'Losers Round',
+  'Losers Quarter',
+  'Losers Semi',
+  'Losers Final',
   'Grand Final',
   'Grand Final Set2',
   'Pools',

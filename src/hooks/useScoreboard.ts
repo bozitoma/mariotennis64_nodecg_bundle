@@ -1,4 +1,84 @@
-import { ReactEventHandler, useState } from 'react';
+import { ChangeEventHandler, ReactEventHandler, useState } from 'react';
+import { Scoreboard } from '../types/scoreboard';
+
+export const useScoreboardInfo = () => {
+  const [scoreboardInfo, setScoreboardInfo] = useState<Scoreboard>({
+    Player1: {
+      name: '',
+      prefix: '',
+      xID: '',
+      score: 0,
+    },
+    Player2: {
+      name: '',
+      prefix: '',
+      xID: '',
+      score: 0,
+    },
+    RoundInfo: '',
+  });
+
+  const playerNameEdit: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (event.target.id === 'player1') {
+      setScoreboardInfo((prev) => ({
+        ...prev,
+        Player1: {
+          ...prev.Player1,
+          name: event.target.value,
+        },
+      }));
+    } else if (event.target.id === 'player2') {
+      setScoreboardInfo((prev) => ({
+        ...prev,
+        Player2: {
+          ...prev.Player2,
+          name: event.target.value,
+        },
+      }));
+    }
+  };
+
+  const playerNameSwap = () => {
+    setScoreboardInfo((prev) => ({
+      ...prev,
+      Player1: {
+        ...prev.Player1,
+        name: scoreboardInfo.Player2.name,
+      },
+      Player2: {
+        ...prev.Player2,
+        name: scoreboardInfo.Player1.name,
+      },
+    }));
+  };
+
+  const roundSelect: ReactEventHandler<HTMLDivElement> = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setScoreboardInfo((prev) => ({
+      ...prev,
+      RoundInfo: event.target.value,
+    }));
+  };
+
+  const roundReset = () => {
+    setScoreboardInfo((prev) => ({
+      ...prev,
+      RoundInfo: '',
+    }));
+  };
+
+  return {
+    scoreboardInfo,
+    setScoreboardInfo,
+    playerNameEdit,
+    playerNameSwap,
+    roundSelect,
+    roundReset,
+  };
+};
 
 export const useCharacterInfo = () => {
   const [stateCharacter1P, setStateCharacter1P] = useState('');
