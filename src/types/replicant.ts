@@ -9,6 +9,7 @@ export interface ReplicantMap {
   tournamentInfo: string;
   characterInfo1p: string; //キャラを選択する配列があればそれを指定して良いかも
   characterInfo2p: string;
+  time: string | null;
 }
 
 // Replicantsの初期値を定義
@@ -22,4 +23,5 @@ export const replicantDefaultValues: ReplicantMap = {
   tournamentInfo: '',
   characterInfo1p: '',
   characterInfo2p: '',
+  time: '00:00',
 };

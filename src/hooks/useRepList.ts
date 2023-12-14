@@ -10,6 +10,7 @@ export const useRepList = () => {
   const [repCharacterSelect2p, setRepCharacterSelect2p] = useReplicant('characterInfo2p');
   const [repGameCount1p, setRepGameCount1p] = useReplicant('gameCount1p');
   const [repGameCount2p, setRepGameCount2p] = useReplicant('gameCount2p');
+  const [repTime, setRepTime] = useReplicant('time');
 
   return {
     repBestOfInfo,
@@ -30,5 +31,7 @@ export const useRepList = () => {
     setRepGameCount1p,
     repGameCount2p,
     setRepGameCount2p,
+    repTime,
+    setRepTime,
   };
 };

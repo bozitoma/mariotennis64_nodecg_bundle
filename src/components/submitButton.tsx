@@ -168,7 +168,7 @@ export const ButtonSubmitReset = ({
 
   return (
     <>
-      <Stack direction="row" spacing={2}>
+      <Stack justifyContent="center" direction="row" spacing={2}>
         <Button
           variant="contained"
           color="primary"

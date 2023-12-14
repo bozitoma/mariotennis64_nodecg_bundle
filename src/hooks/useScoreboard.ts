@@ -118,43 +118,43 @@ export const useCharacterInfo = () => {
   };
 };
 
-export const usePlayerInfo = () => {
-  const [statePlayer1p, setStatePlayer1p] = useState('');
-  const [statePlayer2p, setStatePlayer2p] = useState('');
+// export const usePlayerInfo = () => {
+//   const [statePlayer1p, setStatePlayer1p] = useState('');
+//   const [statePlayer2p, setStatePlayer2p] = useState('');
 
-  const playerName1p: ReactEventHandler<HTMLDivElement> = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setStatePlayer1p(event.target.value);
-  };
+//   const playerName1p: ReactEventHandler<HTMLDivElement> = (
+//     event: React.ChangeEvent<HTMLInputElement>
+//   ) => {
+//     setStatePlayer1p(event.target.value);
+//   };
 
-  const playerName2p: ReactEventHandler<HTMLDivElement> = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setStatePlayer2p(event.target.value);
-  };
+//   const playerName2p: ReactEventHandler<HTMLDivElement> = (
+//     event: React.ChangeEvent<HTMLInputElement>
+//   ) => {
+//     setStatePlayer2p(event.target.value);
+//   };
 
-  const playerReset = () => {
-    setStatePlayer1p('');
-    setStatePlayer2p('');
-  };
+//   const playerReset = () => {
+//     setStatePlayer1p('');
+//     setStatePlayer2p('');
+//   };
 
-  const playerSwap = () => {
-    setStatePlayer1p(statePlayer2p);
-    setStatePlayer2p(statePlayer1p);
-  };
+//   const playerSwap = () => {
+//     setStatePlayer1p(statePlayer2p);
+//     setStatePlayer2p(statePlayer1p);
+//   };
 
-  return {
-    statePlayer1p,
-    setStatePlayer1p,
-    statePlayer2p,
-    setStatePlayer2p,
-    playerName1p,
-    playerName2p,
-    playerSwap,
-    playerReset,
-  };
-};
+//   return {
+//     statePlayer1p,
+//     setStatePlayer1p,
+//     statePlayer2p,
+//     setStatePlayer2p,
+//     playerName1p,
+//     playerName2p,
+//     playerSwap,
+//     playerReset,
+//   };
+// };
 
 export const useScore = () => {
   const [stateScore1p, setStateScore1p] = useState(0);

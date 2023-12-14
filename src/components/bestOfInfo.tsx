@@ -29,7 +29,7 @@ export function BestOfInfo({
       setAlignment('');
     }
     return;
-  }, [stateBestOfInfo, alignment]);
+  }, [stateBestOfInfo, setAlignment]);
 
   return (
     <>
