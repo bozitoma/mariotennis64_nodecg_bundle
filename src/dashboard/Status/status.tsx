@@ -5,6 +5,23 @@ import './status.css';
 import Add from '@mui/icons-material/Add';
 import { useEffect, useState } from 'react';
 
+import Mario from '../../assets/character_icon/MarioMT.png';
+import Luigi from '../../assets/character_icon/LuigiMT.png';
+import Wario from '../../assets/character_icon/WarioMT.png';
+import Waluigi from '../../assets/character_icon/WaluigiMT.png';
+import Peach from '../../assets/character_icon/PeachMT.png';
+import Daisy from '../../assets/character_icon/DaisyMT.png';
+import Babymario from '../../assets/character_icon/BabymarioMT.png';
+import Toad from '../../assets/character_icon/ToadMT.png';
+import Yoshi from '../../assets/character_icon/YoshiMT.png';
+import Birdo from '../../assets/character_icon/BirdoMT.png';
+import DK from '../../assets/character_icon/DKMT.png';
+import Bowser from '../../assets/character_icon/BowserMT.png';
+import Paratroopa from '../../assets/character_icon/ParatroopaMT.png';
+import Boo from '../../assets/character_icon/BooMT.png';
+import DKJR from '../../assets/character_icon/DKJRMT.png';
+import Shyguy from '../../assets/character_icon/ShyguyMT.png';
+
 export function Status() {
   const {
     repBestOfInfo,
@@ -38,11 +55,50 @@ export function Status() {
     { label: 'ヘイホー', value: 'Shyguy' },
   ];
 
+  function CharacterIcon(Character: string | undefined) {
+    switch (Character) {
+      case 'Mario':
+        return Mario;
+      case 'Luigi':
+        return Luigi;
+      case 'Wario':
+        return Wario;
+      case 'Waluigi':
+        return Waluigi;
+      case 'Peach':
+        return Peach;
+      case 'Daisy':
+        return Daisy;
+      case 'Babymario':
+        return Babymario;
+      case 'Toad':
+        return Toad;
+      case 'Yoshi':
+        return Yoshi;
+      case 'Birdo':
+        return Birdo;
+      case 'DK':
+        return DK;
+      case 'Bowser':
+        return Bowser;
+      case 'Paratroopa':
+        return Paratroopa;
+      case 'Boo':
+        return Boo;
+      case 'DKJR':
+        return DKJR;
+      case 'Shyguy':
+        return Shyguy;
+      default:
+        return;
+    }
+  }
+
   const result1p = characterList.find(({ label }) => label === repCharacterSelect1p);
   const result2p = characterList.find(({ label }) => label === repCharacterSelect2p);
 
-  const characterIcon1p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result1p?.value}MT.png`;
-  const characterIcon2p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result2p?.value}MT.png`;
+  const characterIcon1p = CharacterIcon(result1p?.value);
+  const characterIcon2p = CharacterIcon(result2p?.value);
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
