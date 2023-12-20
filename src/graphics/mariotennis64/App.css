@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Noto Sans JP', sans-serif;
-  src: url(../assets/font/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf);
+  src: url(../../assets/font/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf);
 }
 
 * {
@@ -11,7 +11,7 @@
 }
 
 body {
-  background: url(../assets/scoreboard_mt64.png);
+  background: url(../../assets/scoreboard_mt64.png);
 }
 
 .wrapper {
@@ -87,7 +87,7 @@ body {
 .info {
   color: aliceblue;
   font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: 0;
   line-height: normal;
@@ -105,10 +105,3 @@ body {
   top: 30px;
   width: 240px;
 }
-
-/*
-  height: 60px;
-  left: 717px;
-  position: absolute;
-  top: 14px;
-  width: 234px; */

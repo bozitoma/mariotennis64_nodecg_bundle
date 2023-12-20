@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'Noto Sans JP', sans-serif;
+  src: url(../../assets/font/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 1920px;
+}
+
+body {
+  background: url(../../assets/scoreboard_mtAce.png);
+}
+
+.wrapper {
+  position: fixed;
+  display: flex;
+}
+
+.character {
+  position: fixed;
+  top: 340px;
+}
+
+.character-1p {
+  position: relative;
+}
+
+.character-2p {
+  position: relative;
+  padding-left: 1440px;
+}
+
+.match-info {
+  position: fixed;
+  display: flex;
+  top: 27px;
+  height: 60px;
+  width: 1920px;
+}
+
+.player-names {
+  color: rgb(20, 20, 20);
+  font-family: 'Noto Sans-DisplayBold', Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+}
+
+.name-1p {
+  position: relative;
+  width: 510px;
+  margin: 0 20px 0 245px;
+}
+
+.name-2p {
+  position: relative;
+  width: 510px;
+  margin: 0 245px 0 20px;
+}
+
+.score {
+  color: aliceblue;
+  font-family: 'Noto Sans-DisplayBold', Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 60px;
+  height: 60px;
+  width: 60px;
+}
+
+.score-1p {
+  position: relative;
+}
+
+.score-2p {
+  position: relative;
+}
+
+.info {
+  color: aliceblue;
+  font-family: 'Noto Sans-DisplayBold', Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.round {
+  top: 0;
+  width: 240px;
+}
+
+.best-of {
+  top: 30px;
+  width: 240px;
+}

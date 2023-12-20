@@ -1,22 +1,22 @@
-import { useRepList } from '../hooks/useRepList';
+import { useRepList } from '../../hooks/useRepList';
 import './App.css';
 
-import Mario from '../assets/character_img/Mario.png';
-import Luigi from '../assets/character_img/Luigi.png';
-import Wario from '../assets/character_img/Wario.png';
-import Waluigi from '../assets/character_img/Waluigi.png';
-import Peach from '../assets/character_img/Peach.png';
-import Daisy from '../assets/character_img/Daisy.png';
-import Babymario from '../assets/character_img/Babymario.png';
-import Toad from '../assets/character_img/Toad.png';
-import Yoshi from '../assets/character_img/Yoshi.png';
-import Birdo from '../assets/character_img/Birdo.png';
-import DK from '../assets/character_img/DK.png';
-import Bowser from '../assets/character_img/Bowser.png';
-import Paratroopa from '../assets/character_img/Paratroopa.png';
-import Boo from '../assets/character_img/Boo.png';
-import DKJR from '../assets/character_img/DKJR.png';
-import Shyguy from '../assets/character_img/Shyguy.png';
+import Mario from '../../assets/character_img/Mario.png';
+import Luigi from '../../assets/character_img/Luigi.png';
+import Wario from '../../assets/character_img/Wario.png';
+import Waluigi from '../../assets/character_img/Waluigi.png';
+import Peach from '../../assets/character_img/Peach.png';
+import Daisy from '../../assets/character_img/Daisy.png';
+import Babymario from '../../assets/character_img/Babymario.png';
+import Toad from '../../assets/character_img/Toad.png';
+import Yoshi from '../../assets/character_img/Yoshi.png';
+import Birdo from '../../assets/character_img/Birdo.png';
+import DK from '../../assets/character_img/DK.png';
+import Bowser from '../../assets/character_img/Bowser.png';
+import Paratroopa from '../../assets/character_img/Paratroopa.png';
+import Boo from '../../assets/character_img/Boo.png';
+import DKJR from '../../assets/character_img/DKJR.png';
+import Shyguy from '../../assets/character_img/Shyguy.png';
 
 function App() {
   const {
