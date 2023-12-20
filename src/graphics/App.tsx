@@ -39,30 +39,28 @@ function App() {
   const characterIcon2p = `https://aimfortheace0622.com/wp-content/uploads/2023/10/${result2p?.value}.png`;
 
   return (
-    <div className="mario-tennis">
-      <div className="overlap-group-wrapper">
-        <div className="overlap-group">
-          <div className="player-names">
-            <div className="name-1p">{repPlayer1p}</div>
-            <div className="name-2p">{repPlayer2p}</div>
-          </div>
-          <div className="score">
-            <div className="score-1p" color="url(#paint0_linear_10_76)">
-              {repGameCount1p}
-            </div>
-            <div className="score-2p" color="url(#paint0_linear_10_76)">
-              {repGameCount2p}
-            </div>
+    <>
+      <div className="wrapper">
+        <div className="character">
+          <img className="character-1p" src={characterIcon1p} alt="" />
+          <img className="character-2p" src={characterIcon2p} alt="" />
+        </div>
+        <div className="match-info">
+          <div className="name-1p player-names">{repPlayer1p}</div>
+          <div className="score-1p score" color="url(#paint0_linear_10_76)">
+            {repGameCount1p}
           </div>
           <div className="info">
-            <div className="bestOfInfo">{repBestOfInfo}</div>
-            <div className="roundInfo">{repRoundInfo}</div>
+            <div className="round">{repRoundInfo}</div>
+            <div className="best-of">{repBestOfInfo}</div>
           </div>
+          <div className="score-2p score" color="url(#paint0_linear_10_76)">
+            {repGameCount2p}
+          </div>
+          <div className="name-2p player-names">{repPlayer2p}</div>
         </div>
       </div>
-      <img className="icon-1p" src={characterIcon1p} alt="" />
-      <img className="icon-2p" src={characterIcon2p} alt="" />
-    </div>
+    </>
   );
 }
 

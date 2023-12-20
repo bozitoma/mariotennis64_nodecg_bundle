@@ -3,129 +3,112 @@
   src: url(../assets/font/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf);
 }
 
-body {
-  background-image: url(../assets/scoreboard_mt64.png);
-  background-size: cover;
-  background-color: transparent;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 1920px;
 }
-/*
-.mario-tennis {
-  background-color: transparent;
+
+body {
+  background: url(../assets/scoreboard_mt64.png);
+}
+
+.wrapper {
+  position: fixed;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+}
 
-} */
-/*
-.mario-tennis .overlap-group-wrapper {
+.character {
+  position: fixed;
+  top: 340px;
+}
 
-} */
-
-.overlap-group {
-  top: 1265px;
-  left: 368px;
+.character-1p {
   position: relative;
-  height: 70px;
-  width: 1440px;
+}
+
+.character-2p {
+  position: relative;
+  padding-left: 1440px;
+}
+
+.match-info {
+  position: fixed;
+  display: flex;
+  top: 1017px;
+  height: 60px;
+  width: 1920px;
 }
 
 .player-names {
   color: rgb(20, 20, 20);
   font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
+  letter-spacing: 0;
   text-align: center;
+  height: 60px;
+  line-height: 60px;
 }
 
 .name-1p {
-  height: 60px;
-  left: 5px;
-  position: absolute;
-  top: 13px;
+  position: relative;
   width: 510px;
+  margin: 0 20px 0 245px;
 }
 
 .name-2p {
-  height: 60px;
-  left: 1161px;
-  position: absolute;
-  top: 13px;
+  position: relative;
   width: 510px;
+  margin: 0 245px 0 20px;
 }
 
 .score {
   color: aliceblue;
   font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 700;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 60px;
+  height: 60px;
+  width: 60px;
 }
 
 .score-1p {
-  height: 60px;
-  left: 617px;
-  position: absolute;
-  top: 9px;
-  width: 60px;
+  position: relative;
 }
 
 .score-2p {
-  height: 60px;
-  left: 1017px;
-  position: absolute;
-  top: 9px;
-  width: 60px;
+  position: relative;
 }
 
 .info {
+  color: aliceblue;
+  font-family: 'Noto Sans-DisplayBold', Helvetica;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.round {
+  top: 0;
+  width: 240px;
+}
+
+.best-of {
+  top: 30px;
+  width: 240px;
+}
+
+/*
   height: 60px;
   left: 717px;
   position: absolute;
   top: 14px;
-  width: 234px;
-}
-
-.bestOfInfo {
-  color: #ffffff;
-  font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 25px;
-  font-weight: 700;
-  height: 30px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 30px;
-  width: 230px;
-}
-
-.roundInfo {
-  color: #ffffff;
-  font-family: 'Noto Sans-DisplayBold', Helvetica;
-  font-size: 25px;
-  font-weight: 700;
-  height: 30px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  width: 230px;
-}
-
-.icon-1p {
-  left: 0px;
-  position: absolute;
-  top: 340px;
-  width: 302px;
-  height: 500px;
-}
-
-.icon-2p {
-  left: 2100px;
-  position: absolute;
-  top: 340px;
-  width: 302px;
-  height: 500px;
-}
+  width: 234px; */
